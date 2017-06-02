@@ -66,6 +66,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		73142E491EE1766500A24D3E /* Sprites */ = {
+			isa = PBXGroup;
+			children = (
+				730A8AEE1ECB10AB00419464 /* block.png */,
+				730A8AF01ECB10AB00419464 /* player.png */,
+				730A8AF31ECB10AB00419464 /* robits.png */,
+			);
+			name = Sprites;
+			sourceTree = "<group>";
+		};
 		735C24811E6FFFDB00D37174 = {
 			isa = PBXGroup;
 			children = (
@@ -89,19 +99,16 @@
 		735C248C1E6FFFDB00D37174 /* RoboChase */ = {
 			isa = PBXGroup;
 			children = (
+				73142E491EE1766500A24D3E /* Sprites */,
 				730A8AEC1ECB10AB00419464 /* Block.cpp */,
 				730A8AED1ECB10AB00419464 /* Block.hpp */,
-				730A8AEE1ECB10AB00419464 /* block.png */,
 				730A8AEF1ECB10AB00419464 /* main.cpp */,
-				730A8AF01ECB10AB00419464 /* player.png */,
 				730A8AF11ECB10AB00419464 /* Robit.cpp */,
 				730A8AF21ECB10AB00419464 /* Robit.hpp */,
-				730A8AF31ECB10AB00419464 /* robits.png */,
 				730A8AF41ECB10AB00419464 /* Scene.cpp */,
 				730A8AF51ECB10AB00419464 /* Scene.hpp */,
 				730A8AF61ECB10AB00419464 /* Sprite.hpp */,
 			);
-			name = RoboChase;
 			path = RoboChase;
 			sourceTree = "<group>";
 		};
