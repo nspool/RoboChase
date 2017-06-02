@@ -1,6 +1,6 @@
 //
 //  Scene.cpp
-//  RoboNeko
+//  RoboChase
 //
 //  Created by nsp on 29/3/17.
 //  Copyright © 2017 nspool. All rights reserved.

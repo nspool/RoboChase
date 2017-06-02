@@ -102,7 +102,7 @@
 				730A8AF61ECB10AB00419464 /* Sprite.hpp */,
 			);
 			name = RoboChase;
-			path = RoboNeko;
+			path = RoboChase;
 			sourceTree = "<group>";
 		};
 		735C24941E70000E00D37174 /* Frameworks */ = {
@@ -131,7 +131,7 @@
 			dependencies = (
 			);
 			name = RoboChase;
-			productName = RoboNeko;
+			productName = RoboChase;
 			productReference = 735C248A1E6FFFDB00D37174 /* RoboChase */;
 			productType = "com.apple.product-type.tool";
 		};

@@ -1,6 +1,6 @@
 //
 //  Sprite.hpp
-//  RoboNeko
+//  RoboChase
 //
 //  Created by nsp on 25/4/17.
 //  Copyright © 2017 nspool. All rights reserved.

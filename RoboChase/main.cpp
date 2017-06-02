@@ -1,6 +1,6 @@
 //
 //  main.cpp
-//  RoboNeko
+//  RoboChase
 //
 //  Created by nspool on 8/3/17.
 //  Copyright © 2017 nspool. All rights reserved.
@@ -84,9 +84,9 @@ int main(int argc, const char * argv[]) {
   SDL_SetEventFilter(event_filter, NULL);
   
   //Create window
-   SDL_Window* window = SDL_CreateWindow("RoboNeko", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_BORDERLESS );
+   SDL_Window* window = SDL_CreateWindow("RoboChase", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_MAXIMIZED );
 
-  SDL_SetWindowTitle(window, "RoboNeko");
+  SDL_SetWindowTitle(window, "RoboChase");
   
   if(window == 0)
   {
