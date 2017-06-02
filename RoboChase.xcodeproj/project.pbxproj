@@ -14,6 +14,7 @@
 		730A8AFB1ECB10D100419464 /* block.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 730A8AEE1ECB10AB00419464 /* block.png */; };
 		730A8AFC1ECB10D100419464 /* player.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 730A8AF01ECB10AB00419464 /* player.png */; };
 		730A8AFD1ECB10D100419464 /* robits.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 730A8AF31ECB10AB00419464 /* robits.png */; };
+		73142E4C1EE17A1400A24D3E /* Player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 73142E4A1EE17A1400A24D3E /* Player.cpp */; };
 		731747C31EBF1F93005881B6 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 731747C21EBF1F93005881B6 /* OpenGL.framework */; };
 		735C24961E70000E00D37174 /* SDL2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 735C24951E70000E00D37174 /* SDL2.framework */; };
 		735C24981E70011F00D37174 /* SDL2_image.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 735C24971E70011F00D37174 /* SDL2_image.framework */; };
@@ -46,6 +47,8 @@
 		730A8AF41ECB10AB00419464 /* Scene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Scene.cpp; path = RoboChase/Scene.cpp; sourceTree = SOURCE_ROOT; };
 		730A8AF51ECB10AB00419464 /* Scene.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = Scene.hpp; path = RoboChase/Scene.hpp; sourceTree = SOURCE_ROOT; };
 		730A8AF61ECB10AB00419464 /* Sprite.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = Sprite.hpp; path = RoboChase/Sprite.hpp; sourceTree = SOURCE_ROOT; };
+		73142E4A1EE17A1400A24D3E /* Player.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Player.cpp; sourceTree = "<group>"; };
+		73142E4B1EE17A1400A24D3E /* Player.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Player.hpp; sourceTree = "<group>"; };
 		731747C21EBF1F93005881B6 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
 		735C248A1E6FFFDB00D37174 /* RoboChase */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = RoboChase; sourceTree = BUILT_PRODUCTS_DIR; };
 		735C24951E70000E00D37174 /* SDL2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL2.framework; path = ../../../../Library/Frameworks/SDL2.framework; sourceTree = "<group>"; };
@@ -100,11 +103,13 @@
 			isa = PBXGroup;
 			children = (
 				73142E491EE1766500A24D3E /* Sprites */,
+				730A8AEF1ECB10AB00419464 /* main.cpp */,
 				730A8AEC1ECB10AB00419464 /* Block.cpp */,
 				730A8AED1ECB10AB00419464 /* Block.hpp */,
-				730A8AEF1ECB10AB00419464 /* main.cpp */,
 				730A8AF11ECB10AB00419464 /* Robit.cpp */,
 				730A8AF21ECB10AB00419464 /* Robit.hpp */,
+				73142E4A1EE17A1400A24D3E /* Player.cpp */,
+				73142E4B1EE17A1400A24D3E /* Player.hpp */,
 				730A8AF41ECB10AB00419464 /* Scene.cpp */,
 				730A8AF51ECB10AB00419464 /* Scene.hpp */,
 				730A8AF61ECB10AB00419464 /* Sprite.hpp */,
@@ -183,6 +188,7 @@
 				730A8AF81ECB10AB00419464 /* main.cpp in Sources */,
 				730A8AF91ECB10AB00419464 /* Robit.cpp in Sources */,
 				730A8AF71ECB10AB00419464 /* Block.cpp in Sources */,
+				73142E4C1EE17A1400A24D3E /* Player.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
