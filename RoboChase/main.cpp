@@ -11,8 +11,6 @@
 
 #include <iostream>
 
-#include <OpenGL/gl.h>
-
 #include "Scene.hpp"
 #include "Robit.hpp"
 #include "Block.hpp"

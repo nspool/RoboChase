@@ -23,5 +23,6 @@
 class Player : public Sprite
 {
 public:
-   Player(SDL_Renderer* renderer, SDL_Point p);
+  Player(SDL_Renderer* renderer, SDL_Point p);
+  void Move(int direction);
 };
