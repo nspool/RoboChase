@@ -25,4 +25,10 @@ class Player : public Sprite
 public:
   Player(SDL_Renderer* renderer, SDL_Point p);
   void Move(int direction);
+  void render();
+private:
+  SDL_Point _p = {0, 200};
+  SDL_Renderer* _renderer = 0;
+  SDL_Rect _spriteClips[3];
+  SDL_Texture* _texture;
 };

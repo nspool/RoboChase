@@ -44,11 +44,6 @@ bool Block::isObsticle() {
   return true;
 }
 
-SDL_Rect Block::getBounds()
-{
-  return { _p.x, _p.y, 32, 32 };
-}
-
 void Block::doCollision(SDL_Rect* rect)
 {
   printf("Block collision\n");

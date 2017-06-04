@@ -27,7 +27,6 @@ class Robit : public Sprite
 {
 public:
   Robit(SDL_Renderer* _renderer, SDL_Point p);
-  SDL_Rect getBounds();
   void render();
   void stop();
   void doCollision(SDL_Rect*);
@@ -39,7 +38,6 @@ private:
   SDL_Point* _currentTarget = nullptr;
   bool _onPath = false;
   std::vector<SDL_Point*> _targets;
-  SDL_Point _p = {0, 200};
   SDL_Point _prev = {0, 200};
   double _rad = M_PI_2;
   double _xDelta = 0;

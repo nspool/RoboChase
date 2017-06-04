@@ -25,9 +25,7 @@ public:
   void stop();
   void doCollision(SDL_Rect*);
   bool isObsticle();
-  SDL_Rect getBounds();
 private:
-  SDL_Point _p = {150, 150};
   SDL_Renderer* _renderer = 0;
   SDL_Rect spriteClips[1];
   SDL_Texture* mTexture;

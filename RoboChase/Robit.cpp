@@ -149,11 +149,6 @@ void Robit::action(SDL_Point* target, std::vector<SDL_Rect>* obsticles)
   }
 }
 
-SDL_Rect Robit::getBounds()
-{
-  return { _p.x, _p.y, 21, 31 };
-}
-
 void Robit::render()
 {
   // Animate at some fixed framerate
