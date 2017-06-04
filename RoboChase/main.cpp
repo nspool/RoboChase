@@ -13,6 +13,7 @@
 
 #include "Scene.hpp"
 #include "Robit.hpp"
+#include "Player.hpp"
 #include "Block.hpp"
 
 SDL_Surface* _background = 0;
@@ -113,6 +114,8 @@ int main(int argc, const char * argv[]) {
   Sprite* robit1 = new Robit(_renderer,{0, 100});
   Sprite* robit2 = new Robit(_renderer, {500, 500});
   
+  Sprite* player = new Player(_renderer, {25, 25});
+
   
   for(int i = 0; i<10; i++){
     SDL_Point p = {(int)arc4random_uniform(SCREEN_WIDTH), (int)arc4random_uniform(SCREEN_HEIGHT)};
@@ -122,6 +125,9 @@ int main(int argc, const char * argv[]) {
   
   scene->Add(robit1);
   scene->Add(robit2);
+  
+  scene->Add(player);
+  
   
   // Main event loop
   
