@@ -28,6 +28,8 @@ int windowX = 0;
 int windowY = 0;
 int currentTranceDirection = 0;
 
+SDL_Point playerPosition;
+
 SDL_Surface *load_image(std::string filename)
 {
   SDL_Surface* loadedImage = 0;
@@ -80,11 +82,12 @@ int main(int argc, const char * argv[]) {
   if(platform[0] == 'i' || platform[0] == 'A') {
     isMobile = 1;
   }
-  SDL_SetEventFilter(event_filter, NULL);
+  
+  //  SDL_SetEventFilter(event_filter, NULL);
   
   //Create window
-   SDL_Window* window = SDL_CreateWindow("RoboChase", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_MAXIMIZED );
-
+  SDL_Window* window = SDL_CreateWindow("RoboChase", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_MAXIMIZED );
+  
   SDL_SetWindowTitle(window, "RoboChase");
   
   if(window == 0)
@@ -103,7 +106,7 @@ int main(int argc, const char * argv[]) {
   
   //Initialize renderer color
   SDL_SetRenderDrawColor( _renderer, 0xFF, 0xFF, 0xFF, 0xFF );
-    
+  
   bool quit = false;
   
   // event handler
@@ -114,8 +117,10 @@ int main(int argc, const char * argv[]) {
   Sprite* robit1 = new Robit(_renderer,{0, 100});
   Sprite* robit2 = new Robit(_renderer, {500, 500});
   
-  Sprite* player = new Player(_renderer, {25, 25});
-
+  playerPosition = {25,25};
+  
+  Sprite* player = new Player(_renderer, playerPosition);
+  
   
   for(int i = 0; i<10; i++){
     SDL_Point p = {(int)arc4random_uniform(SCREEN_WIDTH), (int)arc4random_uniform(SCREEN_HEIGHT)};
@@ -128,18 +133,36 @@ int main(int argc, const char * argv[]) {
   
   scene->Add(player);
   
-  
+
   // Main event loop
   
   do {
     
     if(SDL_PollEvent(&e) != 0)
     {
-      if (e.type == SDL_QUIT) {
+      switch(e.type){
+        case SDL_QUIT:
           quit = true;
+          break;
+        case SDL_KEYDOWN:
+          char k = e.key.keysym.sym;
+          if(k == 'w'){
+            playerPosition.y--;
+          }
+          if(k == 's'){
+            playerPosition.y++;
+          }
+          if(k == 'a'){
+            playerPosition.x--;
+          }
+          if(k == 'd'){
+            playerPosition.x++;
+          }
+          break;
+
       }
     }
-  
+    
     SDL_GetWindowPosition(window, &windowX, &windowY);
     SDL_GetGlobalMouseState(&mouseX, &mouseY);
     
@@ -148,9 +171,10 @@ int main(int argc, const char * argv[]) {
     SDL_SetRenderDrawColor( _renderer, 0xFF, 0xFF, 0xFF, 0 );
     SDL_RenderClear( _renderer );
     
-    SDL_Point mountPoint = {mouseX - windowX, mouseY - windowY};
-    scene->doEvent(&mountPoint);
-
+    // SDL_Point mountPoint = {mouseX - windowX, mouseY - windowY};
+    
+    scene->doEvent(&playerPosition);
+    
     SDL_RenderPresent( _renderer );
     
   } while(!quit);

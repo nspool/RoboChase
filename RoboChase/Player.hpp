@@ -26,6 +26,7 @@ public:
   Player(SDL_Renderer* renderer, SDL_Point p);
   void Move(int direction);
   void render();
+  void action(SDL_Point* target, std::vector<SDL_Rect>* obsticles);
 private:
   SDL_Point _p = {0, 200};
   SDL_Renderer* _renderer = 0;

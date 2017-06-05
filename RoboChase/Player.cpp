@@ -32,6 +32,12 @@ Player::Player(SDL_Renderer* renderer, SDL_Point p)
   _texture = SDL_CreateTextureFromSurface( renderer, gPlayer );
 }
 
+void Player::action(SDL_Point* target, std::vector<SDL_Rect>* obsticles)
+{
+  _p.x = target->x;
+  _p.ydd = target->y;
+}
+
 void Player::render()
 {
   SDL_Rect bounds = getBounds();
