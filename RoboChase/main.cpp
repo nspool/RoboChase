@@ -147,16 +147,16 @@ int main(int argc, const char * argv[]) {
         case SDL_KEYDOWN:
           char k = e.key.keysym.sym;
           if(k == 'w'){
-            playerPosition.y--;
+            playerPosition.y = playerPosition.y - 5;
           }
           if(k == 's'){
-            playerPosition.y++;
+            playerPosition.y = playerPosition.y + 5;
           }
           if(k == 'a'){
-            playerPosition.x--;
+            playerPosition.x = playerPosition.x - 5;
           }
           if(k == 'd'){
-            playerPosition.x++;
+            playerPosition.x = playerPosition.x + 5;
           }
           break;
 

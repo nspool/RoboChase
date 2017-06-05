@@ -35,7 +35,7 @@ Player::Player(SDL_Renderer* renderer, SDL_Point p)
 void Player::action(SDL_Point* target, std::vector<SDL_Rect>* obsticles)
 {
   _p.x = target->x;
-  _p.ydd = target->y;
+  _p.y = target->y;
 }
 
 void Player::render()

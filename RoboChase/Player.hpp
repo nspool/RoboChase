@@ -28,7 +28,6 @@ public:
   void render();
   void action(SDL_Point* target, std::vector<SDL_Rect>* obsticles);
 private:
-  SDL_Point _p = {0, 200};
   SDL_Renderer* _renderer = 0;
   SDL_Rect _spriteClips[3];
   SDL_Texture* _texture;
