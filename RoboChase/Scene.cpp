@@ -13,16 +13,22 @@ Scene::Scene(SDL_Renderer* renderer)
   _renderer = renderer;
 }
 
+void Scene::AddPlayer(Player* player) {
+  _player = player;
+}
+
 void Scene::Add(Sprite *sprite)
 {
   _sprites.push_back(sprite);
 }
 
-void Scene::doEvent(SDL_Point *p)
+SDL_Point Scene::doEvent(SDL_Point nextPos)
 {
   std::vector<SDL_Rect> obsticles;
   
-  // Quick & Dirty collision detection
+  SDL_Point newPos;
+  
+  // FIXME: Quick & Dirty collision detection
   for(auto& r : _sprites) {
     
     if(r->isObsticle()) {
@@ -40,13 +46,39 @@ void Scene::doEvent(SDL_Point *p)
     }
   }
   
-  // Update the sprite goals
+  // FIXME:
+  bool playerCollision = false;
+  
+  SDL_Rect s_rect = _player->getBounds();
+  s_rect.x -= 7;
+  s_rect.y -= 7;
+  s_rect.w += 14;
+  s_rect.h += 14;
+  
   for(auto& r : _sprites) {
-    r->action(p, &obsticles);
+    SDL_Rect result = SDL_Rect();
+    SDL_Rect r_rect = r->getBounds();
+    if(SDL_IntersectRect(&r_rect, &s_rect, &result)== SDL_TRUE) {
+      r->doCollision(&s_rect);
+      playerCollision = true;
+    }
   }
   
-  // Render the next frame
+  if(!playerCollision) {
+    _player->action(&nextPos, &obsticles);
+    newPos = nextPos;
+  } else {
+    newPos.x = _player->getBounds().x;
+    newPos.y = _player->getBounds().y;
+  }
+  
+  // Update the sprite goals & render the next frame
   for(auto& r : _sprites) {
+    r->action(&newPos, &obsticles);
     r->render();
   }
+  
+  _player->render();
+  
+  return newPos;
 }

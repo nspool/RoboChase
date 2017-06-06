@@ -14,7 +14,6 @@ Player::Player(SDL_Renderer* renderer, SDL_Point p)
   _renderer = renderer;
   _p = p;
   
-  
   // Load the robit
   SDL_Surface* gPlayer = IMG_Load("player.png");
   

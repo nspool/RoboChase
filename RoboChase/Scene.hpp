@@ -15,16 +15,20 @@
 
 #endif /* Scene_hpp */
 
-#include "Sprite.hpp"
+//#include "Sprite.hpp"
+#include "Player.hpp"
 
 class Scene
 {
 public:
   Scene(SDL_Renderer* _renderer);
   void Add(Sprite* sprite);
+  void AddPlayer(Player* player);
   void Render();
-  void doEvent(SDL_Point* p);
+  SDL_Point doEvent(SDL_Point nextPos);
 private:
+  Player* _player;
   SDL_Renderer* _renderer;
+  SDL_Point* _playerPosition;
   std::vector<Sprite*> _sprites;
 };

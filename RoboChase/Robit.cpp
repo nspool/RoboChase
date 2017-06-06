@@ -61,12 +61,6 @@ void Robit::doCollision(SDL_Rect* rect)
 
 void Robit::action(SDL_Point* target, std::vector<SDL_Rect>* obsticles)
 {
-  
-//  if(_isCollided == true) {
-//    _isCollided = false;
-//    return;
-//  }
-
   if(_currentTarget != nullptr) {
     SDL_Rect bounds = getBounds();
     if(SDL_PointInRect(_currentTarget, &bounds)){
