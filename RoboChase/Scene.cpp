@@ -46,14 +46,15 @@ SDL_Point Scene::doEvent(SDL_Point nextPos)
     }
   }
   
-  // FIXME:
+  // FIXME: Update player position, *then* check for collision
+
   bool playerCollision = false;
   
-  SDL_Rect s_rect = _player->getBounds();
-  s_rect.x -= 7;
-  s_rect.y -= 7;
-  s_rect.w += 14;
-  s_rect.h += 14;
+  SDL_Rect s_rect;
+  s_rect.x = nextPos.x - 7;
+  s_rect.y = nextPos.y - 7;
+  s_rect.w = 14;
+  s_rect.h = 14;
   
   for(auto& r : _sprites) {
     SDL_Rect result = SDL_Rect();
@@ -61,20 +62,24 @@ SDL_Point Scene::doEvent(SDL_Point nextPos)
     if(SDL_IntersectRect(&r_rect, &s_rect, &result)== SDL_TRUE) {
       r->doCollision(&s_rect);
       playerCollision = true;
+      break;
     }
   }
   
   if(!playerCollision) {
+    SDL_Rect playerPos = _player->getBounds();
+    _prevPlayerPosition.x = playerPos.x;
+    _prevPlayerPosition.y = playerPos.y;
     _player->action(&nextPos, &obsticles);
     newPos = nextPos;
   } else {
-    newPos.x = _player->getBounds().x;
-    newPos.y = _player->getBounds().y;
+    newPos.x = _prevPlayerPosition.x;
+    newPos.y = _prevPlayerPosition.y;
   }
   
   // Update the sprite goals & render the next frame
   for(auto& r : _sprites) {
-    r->action(&newPos, &obsticles);
+    r->action(_playerPosition, &obsticles);
     r->render();
   }
   

@@ -171,7 +171,7 @@ int main(int argc, const char * argv[]) {
     SDL_RenderClear( _renderer );
     
     // SDL_Point mountPoint = {mouseX - windowX, mouseY - windowY};
-    
+    printf("%d %d\n", playerPosition.x, playerPosition.y);
     playerPosition = scene->doEvent(playerPosition);
     
     SDL_RenderPresent( _renderer );

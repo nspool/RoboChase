@@ -30,5 +30,6 @@ private:
   Player* _player;
   SDL_Renderer* _renderer;
   SDL_Point* _playerPosition;
+  SDL_Point _prevPlayerPosition = {0,0};
   std::vector<Sprite*> _sprites;
 };
