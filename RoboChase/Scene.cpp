@@ -51,10 +51,10 @@ SDL_Point Scene::doEvent(SDL_Point nextPos)
   bool playerCollision = false;
   
   SDL_Rect s_rect;
-  s_rect.x = nextPos.x - 7;
-  s_rect.y = nextPos.y - 7;
-  s_rect.w = 14;
-  s_rect.h = 14;
+  s_rect.x = nextPos.x;
+  s_rect.y = nextPos.y;
+  s_rect.w = 21;
+  s_rect.h = 31;
   
   for(auto& r : _sprites) {
     SDL_Rect result = SDL_Rect();
