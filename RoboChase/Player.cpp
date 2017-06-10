@@ -19,7 +19,7 @@ Player::Player(SDL_Renderer* renderer, SDL_Point p)
   
   if(gPlayer == 0)
   {
-    printf("Failed to load images! SDL_Error: %s\n", SDL_GetError());
+//    printf("Failed to load images! SDL_Error: %s\n", SDL_GetError());
   }
   
   // Setup Robit animation
