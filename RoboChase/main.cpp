@@ -33,18 +33,21 @@ int main(int argc, const char * argv[]) {
   }
   
   SDL_SetWindowTitle(window, "RoboChase");
-  SDL_SetRenderDrawColor(renderer, 0xFF, 0xFF, 0xFF, 0xFF);
+  SDL_SetRenderDrawColor(renderer, 0x37, 0xFD, 0xFC, 0xFF);
   
   
   // Construct the initial scene
   
   Scene* scene = new Scene(renderer);
-  scene->addSprite(new Robit(renderer,{0, 100}));
-  scene->Add(new Robit(renderer, {500, 500}));
+  
+  for(int i = 0; i<6; i++){
+    SDL_Point p = {(int)arc4random_uniform(SCREEN_WIDTH), (int)arc4random_uniform(SCREEN_HEIGHT)};
+    scene->addSprite(new Block(renderer, p));
+  }
   
   for(int i = 0; i<3; i++){
     SDL_Point p = {(int)arc4random_uniform(SCREEN_WIDTH), (int)arc4random_uniform(SCREEN_HEIGHT)};
-    scene->addSprite(new Block(renderer, p));
+    scene->addSprite(new Robit(renderer, p));
   }
   
   SDL_Point playerPosition = {50,50};
@@ -87,7 +90,6 @@ int main(int argc, const char * argv[]) {
       
     }
     
-    SDL_SetRenderDrawColor(renderer, 0xFF, 0xFF, 0xFF, 0);
     SDL_RenderClear(renderer);
     playerPosition = scene->doEvent(playerPosition);
     SDL_RenderPresent(renderer);
