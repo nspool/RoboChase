@@ -10,8 +10,8 @@
 
 Block::Block(SDL_Renderer* renderer, SDL_Point p)
 {
-  _p = p;
-  _renderer = renderer;
+  position_ = p;
+  renderer_ = renderer;
   
   // Load the robit
   SDL_Surface* gRobits = IMG_Load( "block.png" );
@@ -22,18 +22,18 @@ Block::Block(SDL_Renderer* renderer, SDL_Point p)
   }
   
   // Setup Robit animation
-  spriteClips[0].x = 0;
-  spriteClips[0].y = 0;
-  spriteClips[0].w = 32;
-  spriteClips[0].h = 32;
+  spriteClips_[0].x = 0;
+  spriteClips_[0].y = 0;
+  spriteClips_[0].w = 32;
+  spriteClips_[0].h = 32;
   
-  mTexture = SDL_CreateTextureFromSurface( renderer, gRobits );
+  texture_ = SDL_CreateTextureFromSurface( renderer, gRobits );
 }
 
 void Block::render()
 {
   SDL_Rect blockLoc = getBounds();
-  SDL_RenderCopy( _renderer, mTexture, &spriteClips[0], &blockLoc );
+  SDL_RenderCopy( renderer_, texture_, &spriteClips_[0], &blockLoc );
 }
 
 void Block::stop(){

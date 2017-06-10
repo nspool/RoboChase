@@ -20,13 +20,13 @@
 class Block : public Sprite
 {
 public:
-  Block(SDL_Renderer* _renderer, SDL_Point p);
+  Block(SDL_Renderer* renderer_, SDL_Point p);
   void render();
   void stop();
   void doCollision(SDL_Rect*);
   bool isObsticle();
 private:
-  SDL_Renderer* _renderer = 0;
-  SDL_Rect spriteClips[1];
-  SDL_Texture* mTexture;
+  SDL_Renderer* renderer_ = 0;
+  SDL_Rect spriteClips_[1];
+  SDL_Texture* texture_;
 };

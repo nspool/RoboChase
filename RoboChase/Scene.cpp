@@ -10,16 +10,16 @@
 
 Scene::Scene(SDL_Renderer* renderer)
 {
-  _renderer = renderer;
+  renderer_ = renderer;
 }
 
-void Scene::AddPlayer(Player* player) {
-  _player = player;
+void Scene::addPlayer(Player* player) {
+  player_ = player;
 }
 
-void Scene::Add(Sprite *sprite)
+void Scene::addSprite(Sprite *sprite)
 {
-  _sprites.push_back(sprite);
+  sprites_.push_back(sprite);
 }
 
 SDL_Point Scene::doEvent(SDL_Point nextPos)
@@ -29,13 +29,13 @@ SDL_Point Scene::doEvent(SDL_Point nextPos)
   SDL_Point newPos;
   
   // FIXME: Quick & Dirty collision detection
-  for(auto& r : _sprites) {
+  for(auto& r : sprites_) {
     
     if(r->isObsticle()) {
       obsticles.push_back(r->getBounds());
     }
     
-    for(auto& s : _sprites) {
+    for(auto& s : sprites_) {
       if(r == s) { continue; }
       SDL_Rect result = SDL_Rect();
       SDL_Rect r_rect = r->getBounds();
@@ -56,7 +56,7 @@ SDL_Point Scene::doEvent(SDL_Point nextPos)
   s_rect.w = 21;
   s_rect.h = 31;
   
-  for(auto& r : _sprites) {
+  for(auto& r : sprites_) {
     SDL_Rect result = SDL_Rect();
     SDL_Rect r_rect = r->getBounds();
     if(SDL_IntersectRect(&r_rect, &s_rect, &result)== SDL_TRUE) {
@@ -67,23 +67,23 @@ SDL_Point Scene::doEvent(SDL_Point nextPos)
   }
   
   if(!playerCollision) {
-    SDL_Rect playerPos = _player->getBounds();
-    _prevPlayerPosition.x = playerPos.x;
-    _prevPlayerPosition.y = playerPos.y;
-    _player->action(&nextPos, &obsticles);
+    SDL_Rect playerPos = player_->getBounds();
+    prevPlayerPosition_.x = playerPos.x;
+    prevPlayerPosition_.y = playerPos.y;
+    player_->action(&nextPos, &obsticles);
     newPos = nextPos;
   } else {
-    newPos.x = _prevPlayerPosition.x;
-    newPos.y = _prevPlayerPosition.y;
+    newPos.x = prevPlayerPosition_.x;
+    newPos.y = prevPlayerPosition_.y;
   }
   
   // Update the sprite goals & render the next frame
-  for(auto& r : _sprites) {
-    r->action(_playerPosition, &obsticles);
+  for(auto& r : sprites_) {
+    r->action(&newPos, &obsticles);
     r->render();
   }
   
-  _player->render();
+  player_->render();
   
   return newPos;
 }

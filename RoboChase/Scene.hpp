@@ -22,14 +22,13 @@ class Scene
 {
 public:
   Scene(SDL_Renderer* _renderer);
-  void Add(Sprite* sprite);
-  void AddPlayer(Player* player);
-  void Render();
+  void addSprite(Sprite* sprite);
+  void addPlayer(Player* player);
+  void render();
   SDL_Point doEvent(SDL_Point nextPos);
 private:
-  Player* _player;
-  SDL_Renderer* _renderer;
-  SDL_Point* _playerPosition;
-  SDL_Point _prevPlayerPosition = {0,0};
-  std::vector<Sprite*> _sprites;
+  Player* player_;
+  SDL_Renderer* renderer_;
+  SDL_Point prevPlayerPosition_ = {0,0};
+  std::vector<Sprite*> sprites_;
 };

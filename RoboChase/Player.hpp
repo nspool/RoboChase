@@ -24,11 +24,11 @@ class Player : public Sprite
 {
 public:
   Player(SDL_Renderer* renderer, SDL_Point p);
-  void Move(int direction);
+  void move(int direction);
   void render();
   void action(SDL_Point* target, std::vector<SDL_Rect>* obsticles);
 private:
-  SDL_Renderer* _renderer = 0;
-  SDL_Rect _spriteClips[3];
-  SDL_Texture* _texture;
+  SDL_Renderer* renderer_ = 0;
+  SDL_Rect spriteClips_[3];
+  SDL_Texture* texture_;
 };

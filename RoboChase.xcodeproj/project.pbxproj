@@ -66,14 +66,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		73142E491EE1766500A24D3E /* Sprites */ = {
+		730D5F7C1EEBEC0800BD62D4 /* Sprite Classes */ = {
+			isa = PBXGroup;
+			children = (
+				730A8AF61ECB10AB00419464 /* Sprite.hpp */,
+				730A8AEC1ECB10AB00419464 /* Block.cpp */,
+				730A8AED1ECB10AB00419464 /* Block.hpp */,
+				730A8AF11ECB10AB00419464 /* Robit.cpp */,
+				730A8AF21ECB10AB00419464 /* Robit.hpp */,
+				73142E4A1EE17A1400A24D3E /* Player.cpp */,
+				73142E4B1EE17A1400A24D3E /* Player.hpp */,
+			);
+			name = "Sprite Classes";
+			sourceTree = "<group>";
+		};
+		73142E491EE1766500A24D3E /* Sprite Assets */ = {
 			isa = PBXGroup;
 			children = (
 				730A8AEE1ECB10AB00419464 /* block.png */,
 				730A8AF01ECB10AB00419464 /* player.png */,
 				730A8AF31ECB10AB00419464 /* robits.png */,
 			);
-			name = Sprites;
+			name = "Sprite Assets";
 			sourceTree = "<group>";
 		};
 		735C24811E6FFFDB00D37174 = {
@@ -99,15 +113,9 @@
 		735C248C1E6FFFDB00D37174 /* RoboChase */ = {
 			isa = PBXGroup;
 			children = (
-				73142E491EE1766500A24D3E /* Sprites */,
+				73142E491EE1766500A24D3E /* Sprite Assets */,
+				730D5F7C1EEBEC0800BD62D4 /* Sprite Classes */,
 				730A8AEF1ECB10AB00419464 /* main.cpp */,
-				730A8AF61ECB10AB00419464 /* Sprite.hpp */,
-				730A8AEC1ECB10AB00419464 /* Block.cpp */,
-				730A8AED1ECB10AB00419464 /* Block.hpp */,
-				730A8AF11ECB10AB00419464 /* Robit.cpp */,
-				730A8AF21ECB10AB00419464 /* Robit.hpp */,
-				73142E4A1EE17A1400A24D3E /* Player.cpp */,
-				73142E4B1EE17A1400A24D3E /* Player.hpp */,
 				730A8AF41ECB10AB00419464 /* Scene.cpp */,
 				730A8AF51ECB10AB00419464 /* Scene.hpp */,
 			);

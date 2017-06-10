@@ -17,10 +17,10 @@
 
 int main(int argc, const char * argv[]) {
   
-  // Initialisation
+  // Initialization
   
   if(SDL_Init(SDL_INIT_EVERYTHING) < 0 || IMG_Init( IMG_INIT_PNG | IMG_INIT_JPG) < 0) {
-    std::cerr << "Failed to init SDL!" << std::endl;
+    std::cerr << "Failed to Initialize SDL!" << std::endl;
     return 1;
   }
   
@@ -39,23 +39,24 @@ int main(int argc, const char * argv[]) {
   // Construct the initial scene
   
   Scene* scene = new Scene(renderer);
-//  scene->Add(new Robit(renderer,{0, 100}));
-//  scene->Add(new Robit(renderer, {500, 500}));
+  scene->addSprite(new Robit(renderer,{0, 100}));
+  scene->Add(new Robit(renderer, {500, 500}));
   
   for(int i = 0; i<3; i++){
     SDL_Point p = {(int)arc4random_uniform(SCREEN_WIDTH), (int)arc4random_uniform(SCREEN_HEIGHT)};
-    scene->Add(new Block(renderer, p));
+    scene->addSprite(new Block(renderer, p));
   }
   
   SDL_Point playerPosition = {50,50};
-  scene->AddPlayer(new Player(renderer, playerPosition));
+  scene->addPlayer(new Player(renderer, playerPosition));
   
-  const Uint8* keystates = SDL_GetKeyboardState(NULL);
   
   // Main event loop
   
   SDL_Event e;
   bool quit = false;
+  const Uint8* keystates = SDL_GetKeyboardState(NULL);
+  constexpr int delta = 5;
   
   do {
     
@@ -69,19 +70,20 @@ int main(int argc, const char * argv[]) {
     }
     
     if(keystates[SDL_SCANCODE_UP]) {
-      playerPosition.y = playerPosition.y - 5;
+      playerPosition.y = playerPosition.y - delta;
     }
     
     if(keystates[SDL_SCANCODE_DOWN]) {
-      playerPosition.y = playerPosition.y + 5;
+      playerPosition.y = playerPosition.y + delta;
       
     }
+    
     if(keystates[SDL_SCANCODE_LEFT]) {
-      playerPosition.x = playerPosition.x - 5;
+      playerPosition.x = playerPosition.x - delta;
       
     }
     if(keystates[SDL_SCANCODE_RIGHT]) {
-      playerPosition.x = playerPosition.x + 5;
+      playerPosition.x = playerPosition.x + delta;
       
     }
     

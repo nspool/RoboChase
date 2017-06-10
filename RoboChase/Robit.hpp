@@ -32,19 +32,12 @@ public:
   void doCollision(SDL_Rect*);
   void action(SDL_Point* target, std::vector<SDL_Rect>* obsticles);
 private:
-  bool _isCollided = false;
-  int _lastTransition;
-  int _startTime;
-  SDL_Point* _currentTarget = nullptr;
-  bool _onPath = false;
-  std::vector<SDL_Point*> _targets;
-  SDL_Point _prev = {0, 200};
-  double _rad = M_PI_2;
-  double _xDelta = 0;
-  double _yDelta = 0;
-  int _lastMouseX = 0;
-  int _lastMouseY = 0;
-  SDL_Renderer* _renderer = 0;
-  SDL_Rect _spriteClips[3];
-  SDL_Texture* _texture;
+  int startTime_;
+  SDL_Point* currentTarget_ = nullptr;
+  double rad_ = M_PI_2;
+  double xDelta_ = 0;
+  double yDelta_ = 0;
+  SDL_Renderer* renderer_;
+  SDL_Rect spriteClips_[3];
+  SDL_Texture* texture_;
 };

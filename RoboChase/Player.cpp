@@ -11,8 +11,8 @@
 
 Player::Player(SDL_Renderer* renderer, SDL_Point p)
 {
-  _renderer = renderer;
-  _p = p;
+  renderer_ = renderer;
+  position_ = p;
   
   // Load the robit
   SDL_Surface* gPlayer = IMG_Load("player.png");
@@ -23,22 +23,22 @@ Player::Player(SDL_Renderer* renderer, SDL_Point p)
   }
   
   // Setup Robit animation
-  _spriteClips[0].x = 0;
-  _spriteClips[0].y = 0;
-  _spriteClips[0].w = 21;
-  _spriteClips[0].h = 31;
+  spriteClips_[0].x = 0;
+  spriteClips_[0].y = 0;
+  spriteClips_[0].w = 21;
+  spriteClips_[0].h = 31;
   
-  _texture = SDL_CreateTextureFromSurface( renderer, gPlayer );
+  texture_ = SDL_CreateTextureFromSurface( renderer, gPlayer );
 }
 
 void Player::action(SDL_Point* target, std::vector<SDL_Rect>* obsticles)
 {
-  _p.x = target->x;
-  _p.y = target->y;
+  position_.x = target->x;
+  position_.y = target->y;
 }
 
 void Player::render()
 {
   SDL_Rect bounds = getBounds();
-  SDL_RenderCopy( _renderer, _texture, &_spriteClips[0], &bounds );
+  SDL_RenderCopy(renderer_, texture_, &spriteClips_[0], &bounds );
 }
