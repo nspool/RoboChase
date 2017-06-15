@@ -8,7 +8,6 @@
 
 #include "Player.hpp"
 
-
 Player::Player(SDL_Renderer* renderer, SDL_Point p)
 {
   renderer_ = renderer;
@@ -35,12 +34,24 @@ Player::Player(SDL_Renderer* renderer, SDL_Point p)
 
 void Player::action(SDL_Point* target, std::vector<SDL_Rect>* obsticles)
 {
-  if(position_.x == target->x && position_.y == target->y) {
-    isMoving = false;
+  int yd = (position_.y - target->y);
+  int xd = (position_.x - target->x);
+  
+  if(!xd && !yd) {
+    direction_ = x;
   } else {
+    if(yd > 0) { direction_ = w; }
+    if(yd < 0) { direction_ = e; }
+    if(xd > 0) { direction_ = s; }
+    if(xd < 0) { direction_ = n; }
+
+    if(yd > 0 && xd > 0) { direction_ = sw; }
+    if(yd < 0 && xd < 0) { direction_ = ne; }
+    if(yd > 0 && xd < 0) { direction_ = nw; }
+    if(yd < 0 && xd > 0) { direction_ = se; }
+        
     position_.x = target->x;
     position_.y = target->y;
-    isMoving = true;
   }
 }
 
@@ -52,7 +63,7 @@ void Player::render(int ticks)
   
   SDL_Rect bounds = getBounds();
   
-  if(isMoving){
+  if(direction_ != x){
     int frameToDraw = (ticks * animationRate / 1000) % animationLen;
     SDL_Rect bounds = getBounds();
     SDL_RenderCopy(renderer_, texture_, &spriteClips_[frameToDraw], &bounds);

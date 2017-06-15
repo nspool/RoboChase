@@ -19,6 +19,7 @@
 
 #endif /* Player_hpp */
 
+enum Direction { x, n, s, e, w, nw, ne, sw, se };
 
 class Player : public Sprite
 {
@@ -27,8 +28,8 @@ public:
   void move(int direction);
   void render(int ticks);
   void action(SDL_Point* target, std::vector<SDL_Rect>* obsticles);
-  bool isMoving = false;
 private:
+  Direction direction_ = x;
   SDL_Renderer* renderer_ = 0;
   SDL_Rect spriteClips_[3];
   SDL_Texture* texture_;
