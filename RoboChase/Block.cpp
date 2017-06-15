@@ -27,13 +27,13 @@ Block::Block(SDL_Renderer* renderer, SDL_Point p)
   spriteClips_[0].w = 32;
   spriteClips_[0].h = 32;
   
-  texture_ = SDL_CreateTextureFromSurface( renderer, gRobits );
+  texture_ = SDL_CreateTextureFromSurface(renderer, gRobits);
 }
 
-void Block::render()
+void Block::render(int ticks)
 {
   SDL_Rect blockLoc = getBounds();
-  SDL_RenderCopy( renderer_, texture_, &spriteClips_[0], &blockLoc );
+  SDL_RenderCopy(renderer_, texture_, &spriteClips_[0], &blockLoc);
 }
 
 void Block::stop(){

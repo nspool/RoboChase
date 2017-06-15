@@ -17,28 +17,46 @@ Player::Player(SDL_Renderer* renderer, SDL_Point p)
   // Load the robit
   SDL_Surface* gPlayer = IMG_Load("player.png");
   
-  if(gPlayer == 0)
-  {
-//    printf("Failed to load images! SDL_Error: %s\n", SDL_GetError());
-  }
+  if(gPlayer == 0) { return; }
   
-  // Setup Robit animation
+  // Setup Player animation
   spriteClips_[0].x = 0;
   spriteClips_[0].y = 0;
   spriteClips_[0].w = 21;
   spriteClips_[0].h = 31;
   
-  texture_ = SDL_CreateTextureFromSurface( renderer, gPlayer );
+  spriteClips_[1].x = 21;
+  spriteClips_[1].y = 0;
+  spriteClips_[1].w = 21;
+  spriteClips_[1].h = 31;
+  
+  texture_ = SDL_CreateTextureFromSurface(renderer, gPlayer);
 }
 
 void Player::action(SDL_Point* target, std::vector<SDL_Rect>* obsticles)
 {
-  position_.x = target->x;
-  position_.y = target->y;
+  if(position_.x == target->x && position_.y == target->y) {
+    isMoving = false;
+  } else {
+    position_.x = target->x;
+    position_.y = target->y;
+    isMoving = true;
+  }
 }
 
-void Player::render()
+void Player::render(int ticks)
 {
+  
+  constexpr int animationRate = 12;
+  constexpr int animationLen = 2;
+  
   SDL_Rect bounds = getBounds();
-  SDL_RenderCopy(renderer_, texture_, &spriteClips_[0], &bounds );
+  
+  if(isMoving){
+    int frameToDraw = (ticks * animationRate / 1000) % animationLen;
+    SDL_Rect bounds = getBounds();
+    SDL_RenderCopy(renderer_, texture_, &spriteClips_[frameToDraw], &bounds);
+  } else {
+    SDL_RenderCopy(renderer_, texture_, &spriteClips_[0], &bounds );
+  }
 }

@@ -27,12 +27,11 @@ class Robit : public Sprite
 {
 public:
   Robit(SDL_Renderer* _renderer, SDL_Point p);
-  void render();
+  void render(int ticks);
   void stop();
   void doCollision(SDL_Rect*);
   void action(SDL_Point* target, std::vector<SDL_Rect>* obsticles);
 private:
-  int startTime_;
   SDL_Point* currentTarget_ = nullptr;
   double rad_ = M_PI_2;
   double xDelta_ = 0;

@@ -25,8 +25,9 @@ class Player : public Sprite
 public:
   Player(SDL_Renderer* renderer, SDL_Point p);
   void move(int direction);
-  void render();
+  void render(int ticks);
   void action(SDL_Point* target, std::vector<SDL_Rect>* obsticles);
+  bool isMoving = false;
 private:
   SDL_Renderer* renderer_ = 0;
   SDL_Rect spriteClips_[3];

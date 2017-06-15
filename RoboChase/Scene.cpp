@@ -78,12 +78,12 @@ SDL_Point Scene::doEvent(SDL_Point nextPos)
   }
   
   // Update the sprite goals & render the next frame
+  int ticks = (SDL_GetTicks() - startTime_);
   for(auto& r : sprites_) {
     r->action(&newPos, &obsticles);
-    r->render();
+    r->render(ticks);
   }
-  
-  player_->render();
+  player_->render(ticks);
   
   return newPos;
 }

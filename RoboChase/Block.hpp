@@ -21,7 +21,7 @@ class Block : public Sprite
 {
 public:
   Block(SDL_Renderer* renderer_, SDL_Point p);
-  void render();
+  void render(int ticks);
   void stop();
   void doCollision(SDL_Rect*);
   bool isObsticle();

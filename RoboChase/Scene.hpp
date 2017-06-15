@@ -24,9 +24,10 @@ public:
   Scene(SDL_Renderer* _renderer);
   void addSprite(Sprite* sprite);
   void addPlayer(Player* player);
-  void render();
+  void render(int ticks);
   SDL_Point doEvent(SDL_Point nextPos);
 private:
+  int startTime_;
   Player* player_;
   SDL_Renderer* renderer_;
   SDL_Point prevPlayerPosition_ = {0,0};

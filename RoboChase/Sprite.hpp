@@ -16,7 +16,7 @@ struct Sprite
 {
 public:
   virtual bool isObsticle() { return false; }
-  virtual void render() {}
+  virtual void render(int ticks) {}
   virtual void stop() {}
   virtual void doCollision(SDL_Rect* rect) {}
   virtual void action(SDL_Point* target, std::vector<SDL_Rect>* obsticles) {};

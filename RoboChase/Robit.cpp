@@ -54,7 +54,6 @@ void Robit::doCollision(SDL_Rect* rect)
   
   currentTarget_-> x = cos(rad);
   currentTarget_-> y = sin(rad);
-  
 }
 
 
@@ -124,12 +123,12 @@ void Robit::action(SDL_Point* target, std::vector<SDL_Rect>* obsticles)
   }
 }
 
-void Robit::render()
+void Robit::render(int ticks)
 {
   // Animate at some fixed framerate
   constexpr int animationRate = 12;
   constexpr int animationLen = 3;
-  int frameToDraw = ((SDL_GetTicks() - startTime_) * animationRate / 1000) % animationLen;
+  int frameToDraw = (ticks * animationRate / 1000) % animationLen;
   SDL_Rect bounds = getBounds();
-  SDL_RenderCopy( renderer_, texture_, &spriteClips_[frameToDraw], &bounds );
+  SDL_RenderCopy(renderer_, texture_, &spriteClips_[frameToDraw], &bounds);
 }
