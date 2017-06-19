@@ -35,6 +35,40 @@ int main(int argc, const char * argv[]) {
   SDL_SetWindowTitle(window, "RoboChase");
   SDL_SetRenderDrawColor(renderer, 0x37, 0xFD, 0xFC, 0xFF);
   
+  SDL_Event e;
+  const Uint8* keystates = SDL_GetKeyboardState(NULL);
+  
+  // Render the title screen
+  
+  bool start = false;
+  
+  SDL_Surface* title = IMG_Load("title.png");
+  SDL_Texture* titleTexture = SDL_CreateTextureFromSurface(renderer, title);
+  constexpr SDL_Rect titleLoc = { 0,0, 256, 256 };
+  SDL_Rect titleBounds = {SCREEN_WIDTH/2 - titleLoc.w/2, SCREEN_HEIGHT/2 - titleLoc.h/2, titleLoc.w, titleLoc.h};
+  SDL_RenderClear(renderer);
+  SDL_RenderCopy(renderer, titleTexture, &titleLoc, &titleBounds);
+  SDL_RenderPresent(renderer);
+  
+  do {
+    
+    if(SDL_PollEvent(&e) != 0)
+    {
+      switch(e.type){
+        case SDL_QUIT:
+          SDL_DestroyWindow(window);
+          SDL_Quit();
+          return 0;
+          break;
+      }
+    } 
+    
+    if(keystates[SDL_SCANCODE_SPACE]) {
+      start = true;
+    }
+    
+  } while(!start);
+  
   
   // Construct the initial scene
   
@@ -56,10 +90,10 @@ int main(int argc, const char * argv[]) {
   
   // Main event loop
   
-  SDL_Event e;
-  bool quit = false;
-  const Uint8* keystates = SDL_GetKeyboardState(NULL);
+  
+  
   constexpr int delta = 5;
+  bool quit = false;
   
   do {
     

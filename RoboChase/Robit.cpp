@@ -15,7 +15,7 @@ Robit::Robit(SDL_Renderer* renderer, SDL_Point p)
   renderer_ = renderer;
   
   // Load the robit
-  SDL_Surface* gRobits = IMG_Load( "robits.png" );
+  SDL_Surface* gRobits = IMG_Load("robits.png");
   
   if(gRobits == 0)
   {
