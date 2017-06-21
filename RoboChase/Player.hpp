@@ -31,6 +31,6 @@ public:
 private:
   Direction direction_ = x;
   SDL_Renderer* renderer_ = 0;
-  SDL_Rect spriteClips_[5];
+  SDL_Rect spriteClips_[7];
   SDL_Texture* texture_;
 };
