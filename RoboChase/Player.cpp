@@ -54,6 +54,16 @@ Player::Player(SDL_Renderer* renderer, SDL_Point p)
   spriteClips_[6].w = 21;
   spriteClips_[6].h = 31;
   
+  spriteClips_[7].x = 148;
+  spriteClips_[7].y = 0;
+  spriteClips_[7].w = 21;
+  spriteClips_[7].h = 31;
+  
+  spriteClips_[8].x = 169;
+  spriteClips_[8].y = 0;
+  spriteClips_[8].w = 21;
+  spriteClips_[8].h = 31;
+  
   texture_ = SDL_CreateTextureFromSurface(renderer, gPlayer);
 }
 
@@ -68,7 +78,7 @@ void Player::action(SDL_Point* target, std::vector<SDL_Rect>* obsticles)
     if(xd < 0) { direction_ = w; }
     if(xd > 0) { direction_ = e; }
     if(yd < 0) { direction_ = s; }
-//    if(xd < 0) { direction_ = n; }
+    if(yd > 0) { direction_ = n; }
 
 //    if(yd > 0 && xd > 0) { direction_ = sw; }
 //    if(yd < 0 && xd < 0) { direction_ = ne; }
@@ -98,6 +108,10 @@ void Player::render(int ticks)
         offset = 3; break;
       case s:
         offset = 5; break;
+      case n:
+        offset = 7; break;
+      default:
+        break;
     }
     int frameToDraw = (ticks * animationRate / 1000) % animationLen;
     SDL_Rect bounds = getBounds();
