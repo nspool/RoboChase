@@ -38,13 +38,13 @@ Robit::Robit(SDL_Renderer* renderer, SDL_Point p)
   spriteClips_[2].w = 21;
   spriteClips_[2].h = 31;
   
-  texture_ = SDL_CreateTextureFromSurface( renderer, gRobits );
+  texture_ = SDL_CreateTextureFromSurface(renderer, gRobits);
 }
 
 void Robit::stop()
 {
   SDL_Rect robitLoc = { position_.x, position_.y, 21, 31 };
-  SDL_RenderCopy(renderer_, texture_, &spriteClips_[1], &robitLoc );
+  SDL_RenderCopy(renderer_, texture_, &spriteClips_[1], &robitLoc);
 }
 
 void Robit::doCollision(SDL_Rect* rect)

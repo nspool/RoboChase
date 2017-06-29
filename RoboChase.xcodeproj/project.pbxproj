@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		730885F81F04EC6A0092B9EA /* SpriteSheet.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 730885F61F04EC6A0092B9EA /* SpriteSheet.cpp */; };
 		730A8AF71ECB10AB00419464 /* Block.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 730A8AEC1ECB10AB00419464 /* Block.cpp */; };
 		730A8AF81ECB10AB00419464 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 730A8AEF1ECB10AB00419464 /* main.cpp */; };
 		730A8AF91ECB10AB00419464 /* Robit.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 730A8AF11ECB10AB00419464 /* Robit.cpp */; };
@@ -37,6 +38,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		730885F61F04EC6A0092B9EA /* SpriteSheet.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SpriteSheet.cpp; sourceTree = "<group>"; };
+		730885F71F04EC6A0092B9EA /* SpriteSheet.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = SpriteSheet.hpp; sourceTree = "<group>"; };
 		730A8AEC1ECB10AB00419464 /* Block.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Block.cpp; path = RoboChase/Block.cpp; sourceTree = SOURCE_ROOT; };
 		730A8AED1ECB10AB00419464 /* Block.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = Block.hpp; path = RoboChase/Block.hpp; sourceTree = SOURCE_ROOT; };
 		730A8AEE1ECB10AB00419464 /* block.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = block.png; path = RoboChase/block.png; sourceTree = SOURCE_ROOT; };
@@ -79,6 +82,8 @@
 				730A8AF21ECB10AB00419464 /* Robit.hpp */,
 				73142E4A1EE17A1400A24D3E /* Player.cpp */,
 				73142E4B1EE17A1400A24D3E /* Player.hpp */,
+				730885F61F04EC6A0092B9EA /* SpriteSheet.cpp */,
+				730885F71F04EC6A0092B9EA /* SpriteSheet.hpp */,
 			);
 			name = "Sprite Classes";
 			sourceTree = "<group>";
@@ -192,6 +197,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				730885F81F04EC6A0092B9EA /* SpriteSheet.cpp in Sources */,
 				730A8AFA1ECB10AB00419464 /* Scene.cpp in Sources */,
 				730A8AF81ECB10AB00419464 /* main.cpp in Sources */,
 				730A8AF91ECB10AB00419464 /* Robit.cpp in Sources */,
