@@ -22,6 +22,8 @@ Robit::Robit(SDL_Renderer* renderer, SDL_Point p)
 //    printf("Failed to load images! SDL_Error: %s\n", SDL_GetError());
   }
   
+  sprite_ = SpriteSheet(gRobits, 21);
+  
   // Setup Robit animation
   spriteClips_[0].x = 0;
   spriteClips_[0].y = 0;

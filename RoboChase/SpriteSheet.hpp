@@ -17,4 +17,6 @@ class SpriteSheet
 {
 public:
   SpriteSheet(SDL_Surface* sheet, int width);
+private:
+  SDL_Rect spriteClips_[];
 };
