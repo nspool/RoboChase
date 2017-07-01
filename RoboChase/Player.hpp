@@ -30,7 +30,6 @@ public:
   void action(SDL_Point* target, std::vector<SDL_Rect>* obsticles);
 private:
   Direction direction_ = x;
-  SDL_Renderer* renderer_ = 0;
-  SDL_Rect spriteClips_[9];
-  SDL_Texture* texture_;
+  SDL_Renderer* renderer_;
+  SpriteSheet sprite_;
 };

@@ -17,54 +17,8 @@ Player::Player(SDL_Renderer* renderer, SDL_Point p)
   SDL_Surface* gPlayer = IMG_Load("player.png");
   
   if(gPlayer == 0) { return; }
-  
-  // Setup Player animation
-  spriteClips_[0].x = 0;
-  spriteClips_[0].y = 0;
-  spriteClips_[0].w = 21;
-  spriteClips_[0].h = 31;
-  
-  spriteClips_[1].x = 21;
-  spriteClips_[1].y = 0;
-  spriteClips_[1].w = 21;
-  spriteClips_[1].h = 31;
-
-  spriteClips_[2].x = 42;
-  spriteClips_[2].y = 0;
-  spriteClips_[2].w = 21;
-  spriteClips_[2].h = 31;
-  
-  spriteClips_[3].x = 63;
-  spriteClips_[3].y = 0;
-  spriteClips_[3].w = 21;
-  spriteClips_[3].h = 31;
-  
-  spriteClips_[4].x = 85;
-  spriteClips_[4].y = 0;
-  spriteClips_[4].w = 21;
-  spriteClips_[4].h = 31;
-  
-  spriteClips_[5].x = 106;
-  spriteClips_[5].y = 0;
-  spriteClips_[5].w = 21;
-  spriteClips_[5].h = 31;
-  
-  spriteClips_[6].x = 127;
-  spriteClips_[6].y = 0;
-  spriteClips_[6].w = 21;
-  spriteClips_[6].h = 31;
-  
-  spriteClips_[7].x = 148;
-  spriteClips_[7].y = 0;
-  spriteClips_[7].w = 21;
-  spriteClips_[7].h = 31;
-  
-  spriteClips_[8].x = 169;
-  spriteClips_[8].y = 0;
-  spriteClips_[8].w = 21;
-  spriteClips_[8].h = 31;
-  
-  texture_ = SDL_CreateTextureFromSurface(renderer, gPlayer);
+  sprite_ = SpriteSheet(gPlayer, 21);
+  sprite_.texture_ = SDL_CreateTextureFromSurface(renderer, gPlayer);
 }
 
 void Player::action(SDL_Point* target, std::vector<SDL_Rect>* obsticles)
@@ -115,8 +69,8 @@ void Player::render(int ticks)
     }
     int frameToDraw = (ticks * animationRate / 1000) % animationLen;
     SDL_Rect bounds = getBounds();
-    SDL_RenderCopy(renderer_, texture_, &spriteClips_[frameToDraw + offset], &bounds);
+    SDL_RenderCopy(renderer_, sprite_.texture_, &sprite_.spriteClips_[frameToDraw + offset], &bounds);
   } else {
-    SDL_RenderCopy(renderer_, texture_, &spriteClips_[0], &bounds );
+    SDL_RenderCopy(renderer_, sprite_.texture_, &sprite_.spriteClips_[0], &bounds );
   }
 }

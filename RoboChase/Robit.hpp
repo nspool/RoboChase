@@ -15,7 +15,6 @@
 #include <SDL2_image/SDL_image.h>
 #include <SDL2/SDL_timer.h>
 
-#include "SpriteSheet.hpp"
 #include "Sprite.hpp"
 
 constexpr unsigned int SCREEN_WIDTH = 640;
@@ -38,7 +37,5 @@ private:
   double xDelta_ = 0;
   double yDelta_ = 0;
   SDL_Renderer* renderer_;
-  SDL_Rect spriteClips_[3];
-  SDL_Texture* texture_;
-  SpriteSheet* sprite_;
+  SpriteSheet sprite_;
 };

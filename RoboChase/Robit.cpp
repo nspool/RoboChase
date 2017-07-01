@@ -23,30 +23,13 @@ Robit::Robit(SDL_Renderer* renderer, SDL_Point p)
   }
   
   sprite_ = SpriteSheet(gRobits, 21);
-  
-  // Setup Robit animation
-  spriteClips_[0].x = 0;
-  spriteClips_[0].y = 0;
-  spriteClips_[0].w = 21;
-  spriteClips_[0].h = 31;
-  
-  spriteClips_[1].x = 21;
-  spriteClips_[1].y = 0;
-  spriteClips_[1].w = 21;
-  spriteClips_[1].h = 31;
-  
-  spriteClips_[2].x = 42;
-  spriteClips_[2].y = 0;
-  spriteClips_[2].w = 21;
-  spriteClips_[2].h = 31;
-  
-  texture_ = SDL_CreateTextureFromSurface(renderer, gRobits);
+  sprite_.texture_ = SDL_CreateTextureFromSurface(renderer, gRobits);
 }
 
 void Robit::stop()
 {
   SDL_Rect robitLoc = { position_.x, position_.y, 21, 31 };
-  SDL_RenderCopy(renderer_, texture_, &spriteClips_[1], &robitLoc);
+  SDL_RenderCopy(renderer_, sprite_.texture_, &sprite_.spriteClips_[1], &robitLoc);
 }
 
 void Robit::doCollision(SDL_Rect* rect)
@@ -132,5 +115,5 @@ void Robit::render(int ticks)
   constexpr int animationLen = 3;
   int frameToDraw = (ticks * animationRate / 1000) % animationLen;
   SDL_Rect bounds = getBounds();
-  SDL_RenderCopy(renderer_, texture_, &spriteClips_[frameToDraw], &bounds);
+  SDL_RenderCopy(renderer_, sprite_.texture_, &sprite_.spriteClips_[frameToDraw], &bounds);
 }

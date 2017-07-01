@@ -12,6 +12,8 @@
 #include <vector>
 #include <SDL2/SDL.h>
 
+#include "SpriteSheet.hpp"
+
 struct Sprite
 {
 public:

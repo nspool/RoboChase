@@ -16,7 +16,10 @@
 class SpriteSheet
 {
 public:
-  SpriteSheet(SDL_Surface* sheet, int width);
+  SpriteSheet();
+  SpriteSheet(SDL_Surface*, int);
+  SDL_Rect* spriteClips_;
+  SDL_Texture* texture_;
 private:
-  SDL_Rect spriteClips_[];
+  void init(SDL_Surface*, int);
 };
