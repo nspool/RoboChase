@@ -18,8 +18,8 @@ class SpriteSheet
 public:
   SpriteSheet();
   SpriteSheet(SDL_Surface*, int);
-  SDL_Rect* spriteClips_;
-  SDL_Texture* texture_;
+  SDL_Rect* clips;
+  SDL_Texture* texture;
 private:
   void init(SDL_Surface*, int);
 };

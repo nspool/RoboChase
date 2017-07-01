@@ -18,7 +18,7 @@ Player::Player(SDL_Renderer* renderer, SDL_Point p)
   
   if(gPlayer == 0) { return; }
   sprite_ = SpriteSheet(gPlayer, 21);
-  sprite_.texture_ = SDL_CreateTextureFromSurface(renderer, gPlayer);
+  sprite_.texture = SDL_CreateTextureFromSurface(renderer, gPlayer);
 }
 
 void Player::action(SDL_Point* target, std::vector<SDL_Rect>* obsticles)
@@ -69,8 +69,8 @@ void Player::render(int ticks)
     }
     int frameToDraw = (ticks * animationRate / 1000) % animationLen;
     SDL_Rect bounds = getBounds();
-    SDL_RenderCopy(renderer_, sprite_.texture_, &sprite_.spriteClips_[frameToDraw + offset], &bounds);
+    SDL_RenderCopy(renderer_, sprite_.texture, &sprite_.clips[frameToDraw + offset], &bounds);
   } else {
-    SDL_RenderCopy(renderer_, sprite_.texture_, &sprite_.spriteClips_[0], &bounds );
+    SDL_RenderCopy(renderer_, sprite_.texture, &sprite_.clips[0], &bounds );
   }
 }
