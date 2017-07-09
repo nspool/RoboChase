@@ -26,8 +26,8 @@ public:
   void move(int direction);
   void render(int ticks);
   void action(SDL_Point* target, std::vector<SDL_Rect>* obsticles);
-private:
   Direction direction_ = x;
+private:
   SDL_Renderer* renderer_;
   SpriteSheet sprite_;
 };

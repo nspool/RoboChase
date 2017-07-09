@@ -22,7 +22,7 @@ void Scene::addSprite(Sprite *sprite)
   sprites_.push_back(sprite);
 }
 
-SDL_Point Scene::doEvent(SDL_Point nextPos)
+Direction Scene::doEvent(SDL_Point nextPos)
 {
   std::vector<SDL_Rect> obsticles;
   
@@ -37,6 +37,7 @@ SDL_Point Scene::doEvent(SDL_Point nextPos)
     
     for(auto& s : sprites_) {
       if(r == s) { continue; }
+      
       SDL_Rect result = SDL_Rect();
       SDL_Rect r_rect = r->getBounds();
       SDL_Rect s_rect = s->getBounds();
@@ -89,5 +90,5 @@ SDL_Point Scene::doEvent(SDL_Point nextPos)
   }
   player_->render(ticks);
   
-  return newPos;
+  return player_->direction_;
 }

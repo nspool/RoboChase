@@ -23,7 +23,21 @@ Projectile::Projectile(SDL_Renderer* renderer, SDL_Point p, Direction direction)
 
 void Projectile::render(int ticks)
 {
-  position_.x--;
+  constexpr int v = 7;
+  switch(direction_) {
+    case e:
+      position_.x -= v; break;
+    case w:
+      position_.x += v; break;
+    case s:
+      position_.y += v; break;
+    case n:
+      position_.y -= v; break;
+    default:
+      position_.x -= v; break;
+      break;
+  }
+  
   SDL_Rect blockLoc = getBounds();
   SDL_RenderCopy(renderer_, texture_, &sprite_.clips[0], &blockLoc);
 }

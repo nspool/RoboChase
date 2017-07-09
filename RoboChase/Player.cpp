@@ -49,7 +49,6 @@ void Player::render(int ticks)
   constexpr int animationRate = 12;
   constexpr int animationLen = 2;
   
-  
   SDL_Rect bounds = getBounds();
   
   if(direction_ != x){

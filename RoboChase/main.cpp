@@ -93,7 +93,7 @@ int main(int argc, const char * argv[]) {
   
   constexpr int delta = 5;
   bool quit = false;
-  
+  int lastProjectileTime = 0;
   do {
     
     if(SDL_PollEvent(&e) != 0)
@@ -123,12 +123,19 @@ int main(int argc, const char * argv[]) {
       
     }
     
+    SDL_RenderClear(renderer);
+    Direction playerDirection = scene->doEvent(playerPosition);
+    
     if(keystates[SDL_SCANCODE_SPACE]) {
-      scene->addSprite(new Projectile(renderer, playerPosition, n));
+      int timeNow = SDL_GetTicks();
+      if((lastProjectileTime + 250) < timeNow){
+        SDL_Point projectilePosition = playerPosition;
+        projectilePosition.y += 15;
+        scene->addSprite(new Projectile(renderer, projectilePosition, playerDirection));
+        lastProjectileTime = SDL_GetTicks();
+      }
     }
     
-    SDL_RenderClear(renderer);
-    playerPosition = scene->doEvent(playerPosition);
     SDL_RenderPresent(renderer);
     
   } while(!quit);

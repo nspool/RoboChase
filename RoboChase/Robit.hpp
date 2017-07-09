@@ -32,7 +32,7 @@ public:
   void doCollision(SDL_Rect*);
   void action(SDL_Point* target, std::vector<SDL_Rect>* obsticles);
 private:
-  SDL_Point* currentTarget_ = nullptr;
+  SDL_Point* currentTarget_ = {0};
   double rad_ = M_PI_2;
   double xDelta_ = 0;
   double yDelta_ = 0;
