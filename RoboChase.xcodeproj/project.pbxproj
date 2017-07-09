@@ -19,6 +19,8 @@
 		735C24961E70000E00D37174 /* SDL2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 735C24951E70000E00D37174 /* SDL2.framework */; };
 		735C24981E70011F00D37174 /* SDL2_image.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 735C24971E70011F00D37174 /* SDL2_image.framework */; };
 		7398813A1EF7D16400493236 /* title.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 739881391EF7CF5200493236 /* title.png */; };
+		73A5113C1F122AB500C611EA /* Projectile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 73A5113A1F122AB500C611EA /* Projectile.cpp */; };
+		73A5113E1F122D8700C611EA /* projectile.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 73A5113D1F122BB000C611EA /* projectile.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -28,6 +30,7 @@
 			dstPath = .;
 			dstSubfolderSpec = 16;
 			files = (
+				73A5113E1F122D8700C611EA /* projectile.png in CopyFiles */,
 				7398813A1EF7D16400493236 /* title.png in CopyFiles */,
 				730A8AFB1ECB10D100419464 /* block.png in CopyFiles */,
 				730A8AFC1ECB10D100419464 /* player.png in CopyFiles */,
@@ -57,6 +60,9 @@
 		735C24951E70000E00D37174 /* SDL2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL2.framework; path = ../../../../Library/Frameworks/SDL2.framework; sourceTree = "<group>"; };
 		735C24971E70011F00D37174 /* SDL2_image.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL2_image.framework; path = ../../../../Library/Frameworks/SDL2_image.framework; sourceTree = "<group>"; };
 		739881391EF7CF5200493236 /* title.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = title.png; sourceTree = "<group>"; };
+		73A5113A1F122AB500C611EA /* Projectile.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Projectile.cpp; sourceTree = "<group>"; };
+		73A5113B1F122AB500C611EA /* Projectile.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Projectile.hpp; sourceTree = "<group>"; };
+		73A5113D1F122BB000C611EA /* projectile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = projectile.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +90,8 @@
 				73142E4B1EE17A1400A24D3E /* Player.hpp */,
 				730885F61F04EC6A0092B9EA /* SpriteSheet.cpp */,
 				730885F71F04EC6A0092B9EA /* SpriteSheet.hpp */,
+				73A5113B1F122AB500C611EA /* Projectile.hpp */,
+				73A5113A1F122AB500C611EA /* Projectile.cpp */,
 			);
 			name = "Sprite Classes";
 			sourceTree = "<group>";
@@ -91,6 +99,7 @@
 		73142E491EE1766500A24D3E /* Sprite Assets */ = {
 			isa = PBXGroup;
 			children = (
+				73A5113D1F122BB000C611EA /* projectile.png */,
 				739881391EF7CF5200493236 /* title.png */,
 				730A8AEE1ECB10AB00419464 /* block.png */,
 				730A8AF01ECB10AB00419464 /* player.png */,
@@ -203,6 +212,7 @@
 				730A8AF91ECB10AB00419464 /* Robit.cpp in Sources */,
 				730A8AF71ECB10AB00419464 /* Block.cpp in Sources */,
 				73142E4C1EE17A1400A24D3E /* Player.cpp in Sources */,
+				73A5113C1F122AB500C611EA /* Projectile.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

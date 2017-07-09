@@ -19,8 +19,6 @@
 
 #endif /* Player_hpp */
 
-enum Direction { x, n, s, e, w, nw, ne, sw, se };
-
 class Player : public Sprite
 {
 public:

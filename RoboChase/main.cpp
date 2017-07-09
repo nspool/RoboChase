@@ -12,6 +12,7 @@
 #include <iostream>
 
 #include "Scene.hpp"
+#include "Projectile.hpp"
 #include "Robit.hpp"
 #include "Block.hpp"
 
@@ -90,8 +91,6 @@ int main(int argc, const char * argv[]) {
   
   // Main event loop
   
-  
-  
   constexpr int delta = 5;
   bool quit = false;
   
@@ -122,6 +121,10 @@ int main(int argc, const char * argv[]) {
     if(keystates[SDL_SCANCODE_RIGHT]) {
       playerPosition.x = playerPosition.x + delta;
       
+    }
+    
+    if(keystates[SDL_SCANCODE_SPACE]) {
+      scene->addSprite(new Projectile(renderer, playerPosition, n));
     }
     
     SDL_RenderClear(renderer);

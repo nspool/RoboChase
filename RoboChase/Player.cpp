@@ -15,7 +15,6 @@ Player::Player(SDL_Renderer* renderer, SDL_Point p)
   
   // Load the robit
   SDL_Surface* gPlayer = IMG_Load("player.png");
-  
   if(gPlayer == 0) { return; }
   sprite_ = SpriteSheet(gPlayer, 21);
   sprite_.texture = SDL_CreateTextureFromSurface(renderer, gPlayer);

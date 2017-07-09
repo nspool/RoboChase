@@ -14,6 +14,8 @@
 
 #include "SpriteSheet.hpp"
 
+enum Direction { x, n, s, e, w, nw, ne, sw, se };
+
 struct Sprite
 {
 public:

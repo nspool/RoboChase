@@ -16,11 +16,6 @@ Block::Block(SDL_Renderer* renderer, SDL_Point p)
   // Load the robit
   SDL_Surface* gRobits = IMG_Load( "block.png" );
   
-  if(gRobits == 0)
-  {
-//    printf( "Failed to load images! SDL_Error: %s\n", SDL_GetError() );
-  }
-  
   // Setup Robit animation
   spriteClips_[0].x = 0;
   spriteClips_[0].y = 0;
