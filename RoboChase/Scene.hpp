@@ -25,7 +25,8 @@ public:
   void addSprite(Sprite* sprite);
   void addPlayer(Player* player);
   void render(int ticks);
-  Direction doEvent(SDL_Point nextPos);
+  SDL_Point doEvent(SDL_Point nextPos);
+  Direction playerDirection = x;
 private:
   int startTime_;
   Player* player_;
