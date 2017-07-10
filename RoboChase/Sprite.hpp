@@ -19,7 +19,7 @@ enum Direction { x, n, s, e, w, nw, ne, sw, se };
 struct Sprite
 {
 public:
-  virtual bool isObsticle() { return false; }
+  virtual bool isObsticle() { return true; }
   virtual void render(int ticks) {}
   virtual void stop() {}
   virtual void doCollision(SDL_Rect* rect) {}

@@ -34,11 +34,12 @@ void Robit::stop()
 
 void Robit::doCollision(SDL_Rect* rect)
 {
-  double collisionRad = atan2((currentTarget_->y - rect->y), (currentTarget_->x - rect->x));
-  double rad = collisionRad - 1.55 + ((double)arc4random_uniform(1) - 0.5);
-  
-  currentTarget_-> x = cos(rad);
-  currentTarget_-> y = sin(rad);
+  if(currentTarget_ != nullptr) {
+    double collisionRad = atan2((currentTarget_->y - rect->y), (currentTarget_->x - rect->x));
+    double rad = collisionRad - 1.55 + ((double)arc4random_uniform(1) - 0.5);
+    currentTarget_-> x = cos(rad);
+    currentTarget_-> y = sin(rad);
+  }
 }
 
 

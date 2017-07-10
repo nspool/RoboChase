@@ -61,6 +61,9 @@ Direction Scene::doEvent(SDL_Point nextPos)
     playerCollision = true;
   } else {
     for(auto& r : sprites_) {
+      
+      if(!r->isObsticle()) { continue ; }
+      
       SDL_Rect result = SDL_Rect();
       SDL_Rect r_rect = r->getBounds();
       if(SDL_IntersectRect(&r_rect, &s_rect, &result)== SDL_TRUE) {
