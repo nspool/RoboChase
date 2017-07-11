@@ -31,8 +31,8 @@ void Block::render(int ticks)
   SDL_RenderCopy(renderer_, texture_, &spriteClips_[0], &blockLoc);
 }
 
-void Block::stop(){
-  
+void Block::doHit(){
+  printf("box has been hit!\n");
 }
 
 bool Block::isObsticle() {

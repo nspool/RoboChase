@@ -22,9 +22,10 @@ class Projectile : public Sprite
 public:
   Projectile(SDL_Renderer* renderer_, SDL_Point p, Direction d);
   void render(int ticks);
-  void stop();
+  void doHit();
   void doCollision(SDL_Rect*);
   bool isObsticle();
+  bool isProjectile();
   SDL_Rect getBounds() { return { position_.x, position_.y, 5, 5  }; }
 private:
   Direction direction_ = n;

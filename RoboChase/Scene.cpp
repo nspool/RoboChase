@@ -29,20 +29,32 @@ SDL_Point Scene::doEvent(SDL_Point nextPos)
   SDL_Point newPos;
   
   // FIXME: Quick & Dirty collision detection
-  for(auto& r : sprites_) {
+  for(unsigned i=0; i<sprites_.size(); i++){
+
+    Sprite* r = sprites_.at(i);
     
     if(r->isObsticle()) {
       obsticles.push_back(r->getBounds());
     }
     
-    for(auto& s : sprites_) {
+    for(unsigned j=0; j<sprites_.size(); j++){
+      
+      Sprite* s = sprites_.at(j);
+
       if(r == s) { continue; }
       
       SDL_Rect result = SDL_Rect();
       SDL_Rect r_rect = r->getBounds();
       SDL_Rect s_rect = s->getBounds();
       if(SDL_IntersectRect(&r_rect, &s_rect, &result)== SDL_TRUE) {
-        r->doCollision(&s_rect);
+        if(s->isProjectile()) {
+          r->doHit();
+          // FIXME: this will crash when projectile is older than sprite!
+          sprites_.erase(sprites_.begin() + j);
+          sprites_.erase(sprites_.begin() + i);
+        } else {
+          r->doCollision(&s_rect);
+        }
       }
     }
   }

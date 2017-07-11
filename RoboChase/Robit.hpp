@@ -28,7 +28,7 @@ class Robit : public Sprite
 public:
   Robit(SDL_Renderer* _renderer, SDL_Point p);
   void render(int ticks);
-  void stop();
+  void doHit();
   void doCollision(SDL_Rect*);
   void action(SDL_Point* target, std::vector<SDL_Rect>* obsticles);
 private:

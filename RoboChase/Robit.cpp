@@ -26,7 +26,7 @@ Robit::Robit(SDL_Renderer* renderer, SDL_Point p)
   sprite_.texture = SDL_CreateTextureFromSurface(renderer, gRobits);
 }
 
-void Robit::stop()
+void Robit::doHit()
 {
   SDL_Rect robitLoc = { position_.x, position_.y, 21, 31 };
   SDL_RenderCopy(renderer_, sprite_.texture, &sprite_.clips[1], &robitLoc);

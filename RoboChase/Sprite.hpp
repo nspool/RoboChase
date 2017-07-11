@@ -20,8 +20,9 @@ struct Sprite
 {
 public:
   virtual bool isObsticle() { return true; }
+  virtual bool isProjectile() { return false; }
   virtual void render(int ticks) {}
-  virtual void stop() {}
+  virtual void doHit() {}
   virtual void doCollision(SDL_Rect* rect) {}
   virtual void action(SDL_Point* target, std::vector<SDL_Rect>* obsticles) {};
   virtual SDL_Rect getBounds() { return { position_.x, position_.y, 21, 31 }; }

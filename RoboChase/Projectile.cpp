@@ -42,12 +42,16 @@ void Projectile::render(int ticks)
   SDL_RenderCopy(renderer_, texture_, &sprite_.clips[0], &blockLoc);
 }
 
-void Projectile::stop(){
+void Projectile::doHit(){
   
 }
 
 bool Projectile::isObsticle() {
   return false;
+}
+
+bool Projectile::isProjectile() {
+  return true;
 }
 
 void Projectile::doCollision(SDL_Rect* rect)
