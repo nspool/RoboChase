@@ -69,6 +69,7 @@ SDL_Point Scene::doEvent(SDL_Point nextPos)
   s_rect.w = 21;
   s_rect.h = 31;
   
+  // Don't go outside the window bounds
   if(s_rect.x < 0 || s_rect.y < 0 || s_rect.x > (640 - s_rect.w) || s_rect.y > (480 - s_rect.h)) {
     playerCollision = true;
   } else {
@@ -78,7 +79,7 @@ SDL_Point Scene::doEvent(SDL_Point nextPos)
       
       SDL_Rect result = SDL_Rect();
       SDL_Rect r_rect = r->getBounds();
-      if(SDL_IntersectRect(&r_rect, &s_rect, &result)== SDL_TRUE) {
+      if(SDL_IntersectRect(&r_rect, &s_rect, &result) == SDL_TRUE) {
         r->doCollision(&s_rect);
         playerCollision = true;
         break;

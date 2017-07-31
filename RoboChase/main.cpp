@@ -91,7 +91,7 @@ int main(int argc, const char * argv[]) {
   
   // Main event loop
   
-  constexpr int delta = 5;
+  constexpr int delta = 1;
   bool quit = false;
   int lastProjectileTime = 0;
   do {
