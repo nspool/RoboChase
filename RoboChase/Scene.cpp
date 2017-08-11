@@ -49,9 +49,11 @@ SDL_Point Scene::doEvent(SDL_Point nextPos)
       if(SDL_IntersectRect(&r_rect, &s_rect, &result)== SDL_TRUE) {
         if(s->isProjectile()) {
           r->doHit();
-          // FIXME: this will crash when projectile is older than sprite!
-          sprites_.erase(sprites_.begin() + j);
-          sprites_.erase(sprites_.begin() + i);
+          if(r->isDestructable()) {
+            // FIXME: this will crash when projectile is older than sprite!
+            sprites_.erase(sprites_.begin() + j);
+            sprites_.erase(sprites_.begin() + i);
+          }
         } else {
           r->doCollision(&s_rect);
         }

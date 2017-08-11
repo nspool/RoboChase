@@ -32,6 +32,10 @@ void Robit::doHit()
   SDL_RenderCopy(renderer_, sprite_.texture, &sprite_.clips[1], &robitLoc);
 }
 
+bool Robit::isDestructable() {
+  return true;
+}
+
 void Robit::doCollision(SDL_Rect* rect)
 {
   if(currentTarget_ != nullptr) {

@@ -32,7 +32,11 @@ void Block::render(int ticks)
 }
 
 void Block::doHit(){
-  printf("box has been hit!\n");
+  hitPoints--;
+}
+
+bool Block::isDestructable(){
+  return (hitPoints < 1);
 }
 
 bool Block::isObsticle() {

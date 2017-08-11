@@ -30,6 +30,7 @@ public:
   void render(int ticks);
   void doHit();
   void doCollision(SDL_Rect*);
+  bool isDestructable();
   void action(SDL_Point* target, std::vector<SDL_Rect>* obsticles);
 private:
   SDL_Point* currentTarget_ = {0};

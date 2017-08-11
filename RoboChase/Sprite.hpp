@@ -20,6 +20,7 @@ struct Sprite
 {
 public:
   virtual bool isObsticle() { return true; }
+  virtual bool isDestructable() { return false; }
   virtual bool isProjectile() { return false; }
   virtual void render(int ticks) {}
   virtual void doHit() {}

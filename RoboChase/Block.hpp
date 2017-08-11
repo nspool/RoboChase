@@ -25,7 +25,9 @@ public:
   void doHit();
   void doCollision(SDL_Rect*);
   bool isObsticle();
+  bool isDestructable();
 private:
+  int hitPoints = 2;
   SDL_Renderer* renderer_ = 0;
   SDL_Rect spriteClips_[1];
   SDL_Texture* texture_;
