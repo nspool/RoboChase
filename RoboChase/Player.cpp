@@ -25,7 +25,7 @@ void Player::action(SDL_Point* target, std::vector<SDL_Rect>* obsticles)
   int yd = (position_.y - target->y);
   int xd = (position_.x - target->x);
   
-  if(!xd && !yd) {
+  if(yd == 0 && xd == 0) {
     moving_ = false;
     return;
   }
@@ -60,6 +60,7 @@ void Player::render(int ticks)
     default:
       break;
   }
+  
   int frameToDraw = (moving_) ? (ticks * animationRate / 1000) % animationLen : 0;
   SDL_RenderCopy(renderer_, sprite_.texture, &sprite_.clips[frameToDraw + offset], &bounds);
 }

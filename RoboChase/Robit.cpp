@@ -55,8 +55,8 @@ void Robit::action(SDL_Point* target, std::vector<SDL_Rect>* obsticles)
   
   bool willCollide = false;
   
-  int width = 21;
-  int height = 31;
+  int width = 50;
+  int height = 50;
   
   SDL_Rect P1 = { position_.x, position_.y };
   SDL_Rect P2 = { position_.x + width, position_.y + height };

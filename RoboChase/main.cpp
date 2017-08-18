@@ -34,7 +34,8 @@ int main(int argc, const char * argv[]) {
   }
   
   SDL_SetWindowTitle(window, "RoboChase");
-  SDL_SetRenderDrawColor(renderer, 0x37, 0xFD, 0xFC, 0xFF);
+//  SDL_SetRenderDrawColor(renderer, 0x37, 0xFD, 0xFC, 0xFF);
+  SDL_SetRenderDrawColor(renderer, 0xff, 0xff, 0xff, 0xff);
   
   SDL_Event e;
   const Uint8* keystates = SDL_GetKeyboardState(NULL);
@@ -91,7 +92,7 @@ int main(int argc, const char * argv[]) {
   
   // Main event loop
   
-  constexpr int delta = 1;
+  constexpr int delta = 2;
   bool quit = false;
   int lastProjectileTime = 0;
   do {
@@ -132,6 +133,7 @@ int main(int argc, const char * argv[]) {
       if((lastProjectileTime + 250) < timeNow){
         SDL_Point projectilePosition = playerPosition;
         projectilePosition.y += 15;
+        projectilePosition.x += 15;
         scene->addSprite(new Projectile(renderer, projectilePosition, scene->playerDirection));
         lastProjectileTime = SDL_GetTicks();
       }

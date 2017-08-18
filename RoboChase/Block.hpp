@@ -31,5 +31,5 @@ private:
   SDL_Renderer* renderer_ = 0;
   SDL_Rect spriteClips_[1];
   SDL_Texture* texture_;
-  SDL_Rect getBounds() { return { position_.x, position_.y, 20, 20  }; }
+  SDL_Rect getBounds() { return { position_.x, position_.y, 50, 50  }; }
 };

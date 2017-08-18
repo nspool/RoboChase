@@ -26,7 +26,7 @@ public:
   virtual void doHit() {}
   virtual void doCollision(SDL_Rect* rect) {}
   virtual void action(SDL_Point* target, std::vector<SDL_Rect>* obsticles) {};
-  virtual SDL_Rect getBounds() { return { position_.x, position_.y, 21, 31 }; }
+  virtual SDL_Rect getBounds() { return { position_.x, position_.y, 50, 50 }; }
   SDL_Point position_ = {0, 200};
 };
 
