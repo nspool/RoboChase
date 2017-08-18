@@ -25,7 +25,7 @@ int main(int argc, const char * argv[]) {
     return 1;
   }
   
-  SDL_Window* window = SDL_CreateWindow("RoboChase", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_MAXIMIZED);
+  SDL_Window* window = SDL_CreateWindow("RoboChase", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN | SDL_WINDOW_RESIZABLE);
   SDL_Renderer* renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
   
   if(window == 0 || renderer == 0) {
@@ -95,6 +95,9 @@ int main(int argc, const char * argv[]) {
   constexpr int delta = 2;
   bool quit = false;
   int lastProjectileTime = 0;
+  int mWidth = SCREEN_WIDTH;
+  int mHeight = SCREEN_HEIGHT;
+  
   do {
     
     if(SDL_PollEvent(&e) != 0)
@@ -102,6 +105,21 @@ int main(int argc, const char * argv[]) {
       switch(e.type){
         case SDL_QUIT:
           quit = true;
+          break;
+          //Window event occured
+        case SDL_WINDOWEVENT:
+          switch( e.window.event )
+        {
+            //Get new dimensions and repaint on window size change
+          case SDL_WINDOWEVENT_SIZE_CHANGED:
+            mWidth = e.window.data1;
+            mHeight = e.window.data2;
+            printf("width %d, height %d\n", mWidth, mHeight);
+            SDL_RenderPresent(renderer);
+            break;
+          default:
+            break;
+        }
           break;
       }
     }
