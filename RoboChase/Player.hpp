@@ -26,6 +26,7 @@ public:
   void move(int direction);
   void render(int ticks);
   void action(SDL_Point* target, std::vector<SDL_Rect>* obsticles);
+  bool moving_ = false;
   Direction direction_ = x;
 private:
   SDL_Renderer* renderer_;

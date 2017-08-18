@@ -26,21 +26,17 @@ void Player::action(SDL_Point* target, std::vector<SDL_Rect>* obsticles)
   int xd = (position_.x - target->x);
   
   if(!xd && !yd) {
-    direction_ = x;
-  } else {
-    if(xd < 0) { direction_ = w; }
-    if(xd > 0) { direction_ = e; }
-    if(yd < 0) { direction_ = s; }
-    if(yd > 0) { direction_ = n; }
-
-//    if(yd > 0 && xd > 0) { direction_ = sw; }
-//    if(yd < 0 && xd < 0) { direction_ = ne; }
-//    if(yd > 0 && xd < 0) { direction_ = nw; }
-//    if(yd < 0 && xd > 0) { direction_ = se; }
-    
-    position_.x = target->x;
-    position_.y = target->y;
+    moving_ = false;
+    return;
   }
+  
+  moving_ = true;
+  if(xd < 0) { direction_ = w; }
+  if(xd > 0) { direction_ = e; }
+  if(yd < 0) { direction_ = s; }
+  if(yd > 0) { direction_ = n; }
+  position_.x = target->x;
+  position_.y = target->y;
 }
 
 void Player::render(int ticks)
@@ -51,24 +47,19 @@ void Player::render(int ticks)
   
   SDL_Rect bounds = getBounds();
   
-  if(direction_ != x){
-    int offset = 0;
-    switch(direction_) {
-      case e:
-        offset = 1; break;
-      case w:
-        offset = 3; break;
-      case s:
-        offset = 5; break;
-      case n:
-        offset = 7; break;
-      default:
-        break;
-    }
-    int frameToDraw = (ticks * animationRate / 1000) % animationLen;
-    SDL_Rect bounds = getBounds();
-    SDL_RenderCopy(renderer_, sprite_.texture, &sprite_.clips[frameToDraw + offset], &bounds);
-  } else {
-    SDL_RenderCopy(renderer_, sprite_.texture, &sprite_.clips[0], &bounds );
+  int offset = 0;
+  switch(direction_) {
+    case e:
+      offset = 1; break;
+    case w:
+      offset = 3; break;
+    case s:
+      offset = 5; break;
+    case n:
+      offset = 7; break;
+    default:
+      break;
   }
+  int frameToDraw = (moving_) ? (ticks * animationRate / 1000) % animationLen : 0;
+  SDL_RenderCopy(renderer_, sprite_.texture, &sprite_.clips[frameToDraw + offset], &bounds);
 }
