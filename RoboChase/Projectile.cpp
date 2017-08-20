@@ -56,5 +56,5 @@ bool Projectile::isProjectile() {
 
 void Projectile::doCollision(SDL_Rect* rect)
 {
-  //  printf("Block collision\n");
+  // TODO: show impact animation
 }

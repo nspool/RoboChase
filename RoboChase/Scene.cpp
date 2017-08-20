@@ -58,6 +58,9 @@ SDL_Point Scene::doEvent(SDL_Point nextPos)
           }
         } else {
           r->doCollision(&s_rect);
+          if(r->isProjectile()) {
+            sprites_.erase(sprites_.begin() + i);
+          }
         }
       }
     }
@@ -77,7 +80,9 @@ SDL_Point Scene::doEvent(SDL_Point nextPos)
   if(s_rect.x < 0 || s_rect.y < 0 || s_rect.x > (640 - s_rect.w) || s_rect.y > (480 - s_rect.h)) {
     playerCollision = true;
   } else {
-    for(auto& r : sprites_) {
+    for(unsigned j=0; j<sprites_.size(); j++){
+      
+      Sprite* r = sprites_.at(j);
       
       if(!r->isObsticle()) { continue ; }
       
