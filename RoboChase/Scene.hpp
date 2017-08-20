@@ -28,7 +28,8 @@ public:
   SDL_Point doEvent(SDL_Point nextPos);
   Direction playerDirection = x;
 private:
-  int startTime_;
+  int destroyed_ = 0;
+  int startTime_ = 0;
   Player* player_;
   SDL_Renderer* renderer_;
   SDL_Point prevPlayerPosition_ = {0,0};

@@ -53,6 +53,8 @@ SDL_Point Scene::doEvent(SDL_Point nextPos)
             // FIXME: this will crash when projectile is older than sprite!
             sprites_.erase(sprites_.begin() + j);
             sprites_.erase(sprites_.begin() + i);
+            destroyed_++;
+            printf("destroyed: %d\n", destroyed_);
           }
         } else {
           r->doCollision(&s_rect);
@@ -68,8 +70,8 @@ SDL_Point Scene::doEvent(SDL_Point nextPos)
   SDL_Rect s_rect;
   s_rect.x = nextPos.x;
   s_rect.y = nextPos.y;
-  s_rect.w = 21;
-  s_rect.h = 31;
+  s_rect.w = 50;
+  s_rect.h = 50;
   
   // Don't go outside the window bounds
   if(s_rect.x < 0 || s_rect.y < 0 || s_rect.x > (640 - s_rect.w) || s_rect.y > (480 - s_rect.h)) {
