@@ -62,5 +62,6 @@ void Player::render(SDL_Rect camera, int ticks)
   }
   
   int frameToDraw = (moving_) ? (ticks * animationRate / 1000) % animationLen : 0;
+  
   SDL_RenderCopy(renderer_, sprite_.texture, &sprite_.clips[frameToDraw + offset], &bounds);
 }

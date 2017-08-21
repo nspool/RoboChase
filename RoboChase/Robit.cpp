@@ -29,6 +29,7 @@ Robit::Robit(SDL_Renderer* renderer, SDL_Point p)
 void Robit::doHit()
 {
   SDL_Rect robitLoc = { position_.x, position_.y, 21, 31 };
+  
   SDL_RenderCopy(renderer_, sprite_.texture, &sprite_.clips[1], &robitLoc);
 }
 
@@ -120,5 +121,11 @@ void Robit::render(SDL_Rect camera, int ticks)
   constexpr int animationLen = 3;
   int frameToDraw = (ticks * animationRate / 1000) % animationLen;
   SDL_Rect bounds = getBounds();
-  SDL_RenderCopy(renderer_, sprite_.texture, &sprite_.clips[frameToDraw], &bounds);
+  
+  SDL_Rect result = SDL_Rect();
+  if(SDL_IntersectRect(&camera, &bounds, &result)== SDL_TRUE) {
+    bounds.x -= camera.x;
+    bounds.y -= camera.y;
+    SDL_RenderCopy(renderer_, sprite_.texture, &sprite_.clips[frameToDraw], &bounds);
+  }
 }

@@ -18,6 +18,12 @@
 //#include "Sprite.hpp"
 #include "Player.hpp"
 
+constexpr unsigned int SCREEN_WIDTH = 640;
+constexpr unsigned int SCREEN_HEIGHT = 480;
+
+constexpr unsigned int LEVEL_WIDTH = 1024;
+constexpr unsigned int LEVEL_HEIGHT = 1024;
+
 class Scene
 {
 public:

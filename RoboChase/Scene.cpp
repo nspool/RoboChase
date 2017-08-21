@@ -46,6 +46,12 @@ SDL_Point Scene::doEvent(SDL_Rect camera, SDL_Point nextPos)
       SDL_Rect result = SDL_Rect();
       SDL_Rect r_rect = r->getBounds();
       SDL_Rect s_rect = s->getBounds();
+      
+      r_rect.x -= camera.x;
+      r_rect.y -= camera.y;
+      s_rect.x -= camera.x;
+      s_rect.y -= camera.y;
+      
       if(SDL_IntersectRect(&r_rect, &s_rect, &result)== SDL_TRUE) {
         if(s->isProjectile()) {
           r->doHit();
@@ -77,7 +83,7 @@ SDL_Point Scene::doEvent(SDL_Rect camera, SDL_Point nextPos)
   s_rect.h = 50;
   
   // Don't go outside the window bounds
-  if(s_rect.x < 0 || s_rect.y < 0 || s_rect.x > (640 - s_rect.w) || s_rect.y > (480 - s_rect.h)) {
+  if(s_rect.x < 0 || s_rect.y < 0 || s_rect.x > (LEVEL_WIDTH - s_rect.w) || s_rect.y > (LEVEL_HEIGHT - s_rect.h)) {
     playerCollision = true;
   } else {
     for(unsigned j=0; j<sprites_.size(); j++){
@@ -88,6 +94,11 @@ SDL_Point Scene::doEvent(SDL_Rect camera, SDL_Point nextPos)
       
       SDL_Rect result = SDL_Rect();
       SDL_Rect r_rect = r->getBounds();
+      
+      r_rect.x -= camera.x;
+      r_rect.y -= camera.y;
+
+      
       if(SDL_IntersectRect(&r_rect, &s_rect, &result) == SDL_TRUE) {
         r->doCollision(&s_rect);
         playerCollision = true;

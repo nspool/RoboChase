@@ -16,12 +16,6 @@
 #include "Robit.hpp"
 #include "Block.hpp"
 
-constexpr unsigned int SCREEN_WIDTH = 640;
-constexpr unsigned int SCREEN_HEIGHT = 480;
-
-constexpr unsigned int LEVEL_WIDTH = 1024;
-constexpr unsigned int LEVEL_HEIGHT = 1024;
-
 int main(int argc, const char * argv[]) {
 
   
@@ -140,13 +134,12 @@ int main(int argc, const char * argv[]) {
     
     if(keystates[SDL_SCANCODE_DOWN]) {
       playerPosition.y = playerPosition.y + delta;
-      
     }
     
     if(keystates[SDL_SCANCODE_LEFT]) {
       playerPosition.x = playerPosition.x - delta;
-      
     }
+    
     if(keystates[SDL_SCANCODE_RIGHT]) {
       playerPosition.x = playerPosition.x + delta;
     }
