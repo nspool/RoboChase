@@ -80,7 +80,7 @@ int main(int argc, const char * argv[]) {
   
   Scene* scene = new Scene(renderer);
   
-  for(int i = 0; i<6; i++){
+  for(int i = 0; i<20; i++){
     SDL_Point p = {(int)arc4random_uniform(LEVEL_WIDTH), (int)arc4random_uniform(LEVEL_HEIGHT)};
     scene->addSprite(new Block(renderer, p));
   }
@@ -99,8 +99,6 @@ int main(int argc, const char * argv[]) {
   constexpr int delta = 2;
   bool quit = false;
   int lastProjectileTime = 0;
-  int mWidth = SCREEN_WIDTH;
-  int mHeight = SCREEN_HEIGHT;
   
   do {
     
@@ -116,9 +114,8 @@ int main(int argc, const char * argv[]) {
         {
             //Get new dimensions and repaint on window size change
           case SDL_WINDOWEVENT_SIZE_CHANGED:
-            mWidth = e.window.data1;
-            mHeight = e.window.data2;
-            printf("width %d, height %d\n", mWidth, mHeight);
+            camera.w = e.window.data1;
+            camera.h = e.window.data2;
             SDL_RenderPresent(renderer);
             break;
           default:

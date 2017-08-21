@@ -97,7 +97,6 @@ SDL_Point Scene::doEvent(SDL_Rect camera, SDL_Point nextPos)
       
       r_rect.x -= camera.x;
       r_rect.y -= camera.y;
-
       
       if(SDL_IntersectRect(&r_rect, &s_rect, &result) == SDL_TRUE) {
         r->doCollision(&s_rect);
