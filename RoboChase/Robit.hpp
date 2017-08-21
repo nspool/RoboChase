@@ -17,17 +17,13 @@
 
 #include "Sprite.hpp"
 
-constexpr unsigned int SCREEN_WIDTH = 640;
-constexpr unsigned int SCREEN_HEIGHT = 480;
-static SDL_Point ORIGIN = {0,0};
-
 #endif /* Robit_hpp */
 
 class Robit : public Sprite
 {
 public:
   Robit(SDL_Renderer* _renderer, SDL_Point p);
-  void render(int ticks);
+  void render(SDL_Rect camera, int ticks);
   void doHit();
   void doCollision(SDL_Rect*);
   bool isDestructable();

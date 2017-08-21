@@ -21,7 +21,7 @@ Projectile::Projectile(SDL_Renderer* renderer, SDL_Point p, Direction direction)
   texture_ = SDL_CreateTextureFromSurface(renderer, gProjectile);
 }
 
-void Projectile::render(int ticks)
+void Projectile::render(SDL_Rect camera, int ticks)
 {
   constexpr int v = 7;
   switch(direction_) {

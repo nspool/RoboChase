@@ -24,7 +24,7 @@ class Player : public Sprite
 public:
   Player(SDL_Renderer* renderer, SDL_Point p);
   void move(int direction);
-  void render(int ticks);
+  void render(SDL_Rect camera, int ticks);
   void action(SDL_Point* target, std::vector<SDL_Rect>* obsticles);
   bool moving_ = false;
   Direction direction_ = x;

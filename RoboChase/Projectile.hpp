@@ -21,7 +21,7 @@ class Projectile : public Sprite
 {
 public:
   Projectile(SDL_Renderer* renderer_, SDL_Point p, Direction d);
-  void render(int ticks);
+  void render(SDL_Rect camera, int ticks);
   void doHit();
   void doCollision(SDL_Rect*);
   bool isObsticle();

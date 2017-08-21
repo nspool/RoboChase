@@ -25,7 +25,7 @@ public:
   void addSprite(Sprite* sprite);
   void addPlayer(Player* player);
   void render(int ticks);
-  SDL_Point doEvent(SDL_Point nextPos);
+  SDL_Point doEvent(SDL_Rect camera, SDL_Point nextPos);
   Direction playerDirection = x;
 private:
   int destroyed_ = 0;

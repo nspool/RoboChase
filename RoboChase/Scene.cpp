@@ -22,7 +22,7 @@ void Scene::addSprite(Sprite *sprite)
   sprites_.push_back(sprite);
 }
 
-SDL_Point Scene::doEvent(SDL_Point nextPos)
+SDL_Point Scene::doEvent(SDL_Rect camera, SDL_Point nextPos)
 {
   std::vector<SDL_Rect> obsticles;
   
@@ -111,9 +111,9 @@ SDL_Point Scene::doEvent(SDL_Point nextPos)
   int ticks = (SDL_GetTicks() - startTime_);
   for(auto& r : sprites_) {
     r->action(&newPos, &obsticles);
-    r->render(ticks);
+    r->render(camera, ticks);
   }
-  player_->render(ticks);
+  player_->render(camera, ticks);
   
   playerDirection = player_->direction_;
   

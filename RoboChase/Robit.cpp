@@ -113,7 +113,7 @@ void Robit::action(SDL_Point* target, std::vector<SDL_Rect>* obsticles)
   }
 }
 
-void Robit::render(int ticks)
+void Robit::render(SDL_Rect camera, int ticks)
 {
   // Animate at some fixed framerate
   constexpr int animationRate = 12;

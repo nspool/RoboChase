@@ -16,9 +16,18 @@
 #include "Robit.hpp"
 #include "Block.hpp"
 
+constexpr unsigned int SCREEN_WIDTH = 640;
+constexpr unsigned int SCREEN_HEIGHT = 480;
+
+constexpr unsigned int LEVEL_WIDTH = 1024;
+constexpr unsigned int LEVEL_HEIGHT = 1024;
+
 int main(int argc, const char * argv[]) {
+
   
   // Initialization
+  
+  SDL_Rect camera = { 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT };
   
   if(SDL_Init(SDL_INIT_EVERYTHING) < 0 || IMG_Init( IMG_INIT_PNG | IMG_INIT_JPG) < 0) {
     std::cerr << "Failed to Initialize SDL!" << std::endl;
@@ -34,7 +43,8 @@ int main(int argc, const char * argv[]) {
   }
   
   SDL_SetWindowTitle(window, "RoboChase");
-//  SDL_SetRenderDrawColor(renderer, 0x37, 0xFD, 0xFC, 0xFF);
+  
+  // TODO: replace with a texture
   SDL_SetRenderDrawColor(renderer, 0xff, 0xff, 0xff, 0xff);
   
   SDL_Event e;
@@ -77,12 +87,12 @@ int main(int argc, const char * argv[]) {
   Scene* scene = new Scene(renderer);
   
   for(int i = 0; i<6; i++){
-    SDL_Point p = {(int)arc4random_uniform(SCREEN_WIDTH), (int)arc4random_uniform(SCREEN_HEIGHT)};
+    SDL_Point p = {(int)arc4random_uniform(LEVEL_WIDTH), (int)arc4random_uniform(LEVEL_HEIGHT)};
     scene->addSprite(new Block(renderer, p));
   }
   
   for(int i = 0; i<3; i++){
-    SDL_Point p = {(int)arc4random_uniform(SCREEN_WIDTH), (int)arc4random_uniform(SCREEN_HEIGHT)};
+    SDL_Point p = {(int)arc4random_uniform(LEVEL_WIDTH), (int)arc4random_uniform(LEVEL_HEIGHT)};
     scene->addSprite(new Robit(renderer, p));
   }
   
@@ -139,11 +149,13 @@ int main(int argc, const char * argv[]) {
     }
     if(keystates[SDL_SCANCODE_RIGHT]) {
       playerPosition.x = playerPosition.x + delta;
-      
     }
     
+    camera.x = playerPosition.x;
+    camera.y = playerPosition.y;
+    
     SDL_RenderClear(renderer);
-    playerPosition = scene->doEvent(playerPosition);
+    playerPosition = scene->doEvent(camera, playerPosition);
     SDL_RenderPresent(renderer);
 
     if(keystates[SDL_SCANCODE_SPACE]) {

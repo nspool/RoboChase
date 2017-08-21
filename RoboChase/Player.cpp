@@ -39,7 +39,7 @@ void Player::action(SDL_Point* target, std::vector<SDL_Rect>* obsticles)
   position_.y = target->y;
 }
 
-void Player::render(int ticks)
+void Player::render(SDL_Rect camera, int ticks)
 {
   
   constexpr int animationRate = 12;

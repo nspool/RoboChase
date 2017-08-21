@@ -25,10 +25,16 @@ Block::Block(SDL_Renderer* renderer, SDL_Point p)
   texture_ = SDL_CreateTextureFromSurface(renderer, gRobits);
 }
 
-void Block::render(int ticks)
+void Block::render(SDL_Rect camera, int ticks)
 {
   SDL_Rect blockLoc = getBounds();
-  SDL_RenderCopy(renderer_, texture_, &spriteClips_[0], &blockLoc);
+  SDL_Rect result = SDL_Rect();
+
+  if(SDL_IntersectRect(&camera, &blockLoc, &result)== SDL_TRUE) {
+    blockLoc.x -= camera.x;
+    blockLoc.y -= camera.y;
+    SDL_RenderCopy(renderer_, texture_, &spriteClips_[0], &blockLoc);
+  }
 }
 
 void Block::doHit(){
