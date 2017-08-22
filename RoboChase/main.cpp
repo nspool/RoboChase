@@ -21,7 +21,7 @@ int main(int argc, const char * argv[]) {
   
   // Initialization
   
-  SDL_Rect camera = { 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT };
+  SDL_Rect camera = {0, 0, SCREEN_WIDTH, SCREEN_HEIGHT};
   
   if(SDL_Init(SDL_INIT_EVERYTHING) < 0 || IMG_Init( IMG_INIT_PNG | IMG_INIT_JPG) < 0) {
     std::cerr << "Failed to Initialize SDL!" << std::endl;
@@ -141,8 +141,27 @@ int main(int argc, const char * argv[]) {
       playerPosition.x = playerPosition.x + delta;
     }
     
-    camera.x = playerPosition.x;
-    camera.y = playerPosition.y;
+    
+    camera.y = playerPosition.y - (SCREEN_HEIGHT/2);
+
+    if(playerPosition.y < SCREEN_HEIGHT/2) {
+      camera.y = 0;
+    }
+    
+    if(playerPosition.y > (LEVEL_HEIGHT - SCREEN_HEIGHT/2)) {
+      camera.y = LEVEL_HEIGHT - SCREEN_HEIGHT;
+    }
+    
+    camera.x = playerPosition.x - (SCREEN_WIDTH/2);
+    
+    if(playerPosition.x < SCREEN_WIDTH/2) {
+      camera.x = 0;
+    }
+    
+    if(playerPosition.x > (LEVEL_WIDTH - SCREEN_WIDTH/2)) {
+      camera.x = LEVEL_WIDTH - SCREEN_WIDTH;
+    }
+
     
     SDL_RenderClear(renderer);
     playerPosition = scene->doEvent(camera, playerPosition);

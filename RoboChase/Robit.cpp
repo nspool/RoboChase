@@ -29,7 +29,6 @@ Robit::Robit(SDL_Renderer* renderer, SDL_Point p)
 void Robit::doHit()
 {
   SDL_Rect robitLoc = { position_.x, position_.y, 21, 31 };
-  
   SDL_RenderCopy(renderer_, sprite_.texture, &sprite_.clips[1], &robitLoc);
 }
 

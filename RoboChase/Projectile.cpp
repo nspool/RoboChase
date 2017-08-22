@@ -39,7 +39,13 @@ void Projectile::render(SDL_Rect camera, int ticks)
   }
   
   SDL_Rect blockLoc = getBounds();
-  SDL_RenderCopy(renderer_, texture_, &sprite_.clips[0], &blockLoc);
+  SDL_Rect result = SDL_Rect();
+
+  if(SDL_IntersectRect(&camera, &blockLoc, &result)== SDL_TRUE) {
+    blockLoc.x -= camera.x;
+    blockLoc.y -= camera.y;
+    SDL_RenderCopy(renderer_, texture_, &sprite_.clips[0], &blockLoc);
+  }
 }
 
 void Projectile::doHit(){
