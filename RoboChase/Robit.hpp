@@ -27,6 +27,7 @@ public:
   void doHit();
   void doCollision(SDL_Rect*);
   bool isDestructable();
+  bool isEnemy();
   void action(SDL_Point* target, std::vector<SDL_Rect>* obsticles);
 private:
   SDL_Point* currentTarget_ = {0};

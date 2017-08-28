@@ -39,6 +39,11 @@ void Player::action(SDL_Point* target, std::vector<SDL_Rect>* obsticles)
   position_.y = target->y;
 }
 
+void Player::captured()
+{
+  printf("player captured!\n");
+}
+
 void Player::render(SDL_Rect camera, int ticks)
 {
   

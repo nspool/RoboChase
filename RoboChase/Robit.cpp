@@ -36,6 +36,10 @@ bool Robit::isDestructable() {
   return true;
 }
 
+bool Robit::isEnemy() {
+  return true;
+}
+
 void Robit::doCollision(SDL_Rect* rect)
 {
   if(currentTarget_ != nullptr) {
@@ -45,7 +49,6 @@ void Robit::doCollision(SDL_Rect* rect)
     currentTarget_-> y = sin(rad);
   }
 }
-
 
 void Robit::action(SDL_Point* target, std::vector<SDL_Rect>* obsticles)
 {

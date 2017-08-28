@@ -97,6 +97,11 @@ SDL_Point Scene::doEvent(SDL_Rect camera, SDL_Point nextPos)
 
       if(SDL_IntersectRect(&r_rect, &s_rect, &result) == SDL_TRUE) {
         r->doCollision(&s_rect);
+        
+        if(r->isEnemy()) {
+          player_->captured();
+        }
+        
         playerCollision = true;
         break;
       }

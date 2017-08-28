@@ -26,6 +26,7 @@ public:
   void move(int direction);
   void render(SDL_Rect camera, int ticks);
   void action(SDL_Point* target, std::vector<SDL_Rect>* obsticles);
+  void captured();
   bool moving_ = false;
   Direction direction_ = x;
 private:
