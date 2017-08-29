@@ -13,6 +13,10 @@ Scene::Scene(SDL_Renderer* renderer)
   renderer_ = renderer;
 }
 
+bool Scene::isGameOver() {
+  return gameOver_;
+}
+
 void Scene::addPlayer(Player* player) {
   player_ = player;
 }
@@ -100,6 +104,7 @@ SDL_Point Scene::doEvent(SDL_Rect camera, SDL_Point nextPos)
         
         if(r->isEnemy()) {
           player_->captured();
+          gameOver_ = true;
         }
         
         playerCollision = true;

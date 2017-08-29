@@ -31,9 +31,11 @@ public:
   void addSprite(Sprite* sprite);
   void addPlayer(Player* player);
   void render(int ticks);
+  bool isGameOver();
   SDL_Point doEvent(SDL_Rect camera, SDL_Point nextPos);
   Direction playerDirection = x;
 private:
+  bool gameOver_ = false;
   int destroyed_ = 0;
   int startTime_ = 0;
   Player* player_;
