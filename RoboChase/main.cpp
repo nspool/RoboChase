@@ -164,7 +164,6 @@ int main(int argc, const char * argv[]) {
         camera.x = LEVEL_WIDTH - SCREEN_WIDTH;
       }
       
-      
       SDL_RenderClear(renderer);
       playerPosition = scene->doEvent(camera, playerPosition);
       SDL_RenderPresent(renderer);
@@ -180,7 +179,7 @@ int main(int argc, const char * argv[]) {
         }
       }
       
-      endgame = scene->isGameOver();
+      endgame = scene->isGameOver() || scene->isGameWon();
       
     } while(!quit && !endgame);
     

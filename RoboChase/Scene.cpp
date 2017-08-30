@@ -17,6 +17,10 @@ bool Scene::isGameOver() {
   return gameOver_;
 }
 
+bool Scene::isGameWon() {
+  return (ROBOT_COUNT == destroyed_);
+}
+
 void Scene::addPlayer(Player* player) {
   player_ = player;
 }

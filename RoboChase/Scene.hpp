@@ -24,6 +24,9 @@ constexpr unsigned int SCREEN_HEIGHT = 480;
 constexpr unsigned int LEVEL_WIDTH = 1024;
 constexpr unsigned int LEVEL_HEIGHT = 1024;
 
+constexpr unsigned int ROBOT_COUNT = 3;
+
+
 class Scene
 {
 public:
@@ -32,6 +35,7 @@ public:
   void addPlayer(Player* player);
   void render(int ticks);
   bool isGameOver();
+  bool isGameWon();
   SDL_Point doEvent(SDL_Rect camera, SDL_Point nextPos);
   Direction playerDirection = x;
 private:
