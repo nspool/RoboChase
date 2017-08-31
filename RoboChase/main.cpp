@@ -44,12 +44,13 @@ int main(int argc, const char * argv[]) {
   SDL_Event e;
   const Uint8* keystates = SDL_GetKeyboardState(NULL);
   
+  SDL_Surface* title = IMG_Load("title.png");
+
   while(true) {
     // Render the title screen
     
     bool start = false;
     
-    SDL_Surface* title = IMG_Load("title.png");
     SDL_Texture* titleTexture = SDL_CreateTextureFromSurface(renderer, title);
     constexpr SDL_Rect titleLoc = { 0,0, 256, 256 };
     SDL_Rect titleBounds = {SCREEN_WIDTH/2 - titleLoc.w/2, SCREEN_HEIGHT/2 - titleLoc.h/2, titleLoc.w, titleLoc.h};
@@ -179,10 +180,18 @@ int main(int argc, const char * argv[]) {
         }
       }
       
-      endgame = scene->isGameOver() || scene->isGameWon();
+      bool gameOver = scene->isGameOver();
+      bool gameWon = scene->isGameWon();
+      
+      if(gameOver){title = IMG_Load("lose.png");}
+      
+      if(gameWon){title = IMG_Load("win.png");}
+      
+      if(gameWon || gameOver){
+        endgame = true;
+      }
       
     } while(!quit && !endgame);
-    
     
     // Shutdown
     
