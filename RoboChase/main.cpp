@@ -23,7 +23,7 @@ int main(int argc, const char * argv[]) {
   
   SDL_Rect camera = {0, 0, SCREEN_WIDTH, SCREEN_HEIGHT};
   
-  if(SDL_Init(SDL_INIT_EVERYTHING) < 0 || IMG_Init( IMG_INIT_PNG | IMG_INIT_JPG) < 0) {
+  if(SDL_Init(SDL_INIT_TIMER|SDL_INIT_VIDEO) < 0 || IMG_Init( IMG_INIT_PNG | IMG_INIT_JPG) < 0) {
     std::cerr << "Failed to Initialize SDL!" << std::endl;
     return 1;
   }
