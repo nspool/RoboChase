@@ -68,7 +68,7 @@ SDL_Point Scene::doEvent(SDL_Rect camera, SDL_Point nextPos)
             sprites_.erase(sprites_.begin() + j);
             sprites_.erase(sprites_.begin() + i);
             destroyed_++;
-            printf("destroyed: %d\n", destroyed_);
+            SDL_Log("Sprites Destroyed: %d\n", destroyed_);
           }
         } else {
           r->doCollision(&s_rect);

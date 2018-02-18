@@ -16,6 +16,12 @@ Block::Block(SDL_Renderer* renderer, SDL_Point p)
   // Load the robit
   SDL_Surface* gRobits = IMG_Load( "block.png" );
   
+  if(gRobits == 0)
+  {
+    SDL_LogError(0, "%s", SDL_GetError());
+    return;
+  }
+  
   // Setup Robit animation
   spriteClips_[0].x = 0;
   spriteClips_[0].y = 0;

@@ -46,6 +46,12 @@ int main(int argc, const char * argv[]) {
   
   SDL_Surface* title = IMG_Load("title.png");
 
+  if(title == 0)
+  {
+    SDL_LogError(0, "%s", SDL_GetError());
+    return 0;
+  }
+  
   while(true) {
     // Render the title screen
     
@@ -94,7 +100,6 @@ int main(int argc, const char * argv[]) {
     
     SDL_Point playerPosition = {50,50};
     scene->addPlayer(new Player(renderer, playerPosition));
-    
     
     // Main event loop
     
@@ -184,8 +189,13 @@ int main(int argc, const char * argv[]) {
       bool gameWon = scene->isGameWon();
       
       if(gameOver){title = IMG_Load("lose.png");}
-      
       if(gameWon){title = IMG_Load("win.png");}
+      
+      if(title == 0)
+      {
+        SDL_LogError(0, "%s", SDL_GetError());
+        return 0;
+      }
       
       if(gameWon || gameOver){
         endgame = true;

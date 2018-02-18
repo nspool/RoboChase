@@ -16,6 +16,13 @@ Projectile::Projectile(SDL_Renderer* renderer, SDL_Point p, Direction direction)
   
   // Load the robit
   SDL_Surface* gProjectile = IMG_Load("projectile.png");
+  
+  if(gProjectile == 0)
+  {
+    SDL_LogError(0, "%s", SDL_GetError());
+    return;
+  }
+  
   sprite_ = SpriteSheet(gProjectile, 16);
   
   texture_ = SDL_CreateTextureFromSurface(renderer, gProjectile);

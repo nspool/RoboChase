@@ -19,7 +19,8 @@ Robit::Robit(SDL_Renderer* renderer, SDL_Point p)
   
   if(gRobits == 0)
   {
-//    printf("Failed to load images! SDL_Error: %s\n", SDL_GetError());
+    SDL_LogError(0, "%s", SDL_GetError());
+    return;
   }
   
   sprite_ = SpriteSheet(gRobits, 21);
