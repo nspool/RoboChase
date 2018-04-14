@@ -89,12 +89,12 @@ int main(int argc, char * argv[]) {
     Scene* scene = new Scene(renderer);
     
     for(int i = 0; i<20; i++){
-      SDL_Point p = {(int)rand() % LEVEL_WIDTH, (int)rand() % LEVEL_HEIGHT};
+        SDL_Point p = {static_cast<int>((int)rand() % LEVEL_WIDTH), static_cast<int>((int)rand() % LEVEL_HEIGHT)};
       scene->addSprite(new Block(renderer, p));
     }
     
     for(int i = 0; i<3; i++){
-      SDL_Point p = { (int)rand() % LEVEL_WIDTH, (int)rand() % LEVEL_HEIGHT};
+        SDL_Point p = { static_cast<int>((int)rand() % LEVEL_WIDTH), static_cast<int>((int)rand() % LEVEL_HEIGHT)};
       scene->addSprite(new Robit(renderer, p));
     }
     
