@@ -11,9 +11,9 @@
 
 #include <vector>
 
-#include <SDL2/SDL.h>
-#include <SDL2_image/SDL_image.h>
-#include <SDL2/SDL_timer.h>
+#include <SDL.h>
+#include <SDL_image.h>
+#include <SDL_timer.h>
 
 #include "Sprite.hpp"
 
@@ -31,7 +31,7 @@ public:
   void action(SDL_Point* target, std::vector<SDL_Rect>* obsticles);
 private:
   SDL_Point* currentTarget_ = {0};
-  double rad_ = M_PI_2;
+  double rad_ = M_PI / 2;
   double xDelta_ = 0;
   double yDelta_ = 0;
   SDL_Renderer* renderer_;

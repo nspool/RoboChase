@@ -12,3 +12,7 @@ Zap the robots before they catch you! A very simple 2D shooter inspired by the D
  - Improve graphics and replace placeholders
  - Fix collision detection
  - Fix the way the objects are stored in the scene
+
+ ## BUILDING
+ 
+ setx SDL2_Image C:/SDL2_image-2.0.3

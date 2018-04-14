@@ -10,7 +10,7 @@
 #define Sprite_hpp
 
 #include <vector>
-#include <SDL2/SDL.h>
+#include <SDL.h>
 
 #include "SpriteSheet.hpp"
 

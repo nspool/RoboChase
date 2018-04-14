@@ -9,7 +9,7 @@
 #ifndef SpriteSheet_hpp
 #define SpriteSheet_hpp
 
-#include <SDL2/SDL.h>
+#include <SDL.h>
 
 #endif /* SpriteSheet_hpp */
 

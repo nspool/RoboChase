@@ -16,7 +16,7 @@
 #include "Robit.hpp"
 #include "Block.hpp"
 
-int main(int argc, const char * argv[]) {
+int main(int argc, char * argv[]) {
   
   
   // Initialization
@@ -89,12 +89,12 @@ int main(int argc, const char * argv[]) {
     Scene* scene = new Scene(renderer);
     
     for(int i = 0; i<20; i++){
-      SDL_Point p = {(int)arc4random_uniform(LEVEL_WIDTH), (int)arc4random_uniform(LEVEL_HEIGHT)};
+      SDL_Point p = {(int)rand() % LEVEL_WIDTH, (int)rand() % LEVEL_HEIGHT};
       scene->addSprite(new Block(renderer, p));
     }
     
     for(int i = 0; i<3; i++){
-      SDL_Point p = {(int)arc4random_uniform(LEVEL_WIDTH), (int)arc4random_uniform(LEVEL_HEIGHT)};
+      SDL_Point p = { (int)rand() % LEVEL_WIDTH, (int)rand() % LEVEL_HEIGHT};
       scene->addSprite(new Robit(renderer, p));
     }
     

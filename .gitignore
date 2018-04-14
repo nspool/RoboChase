@@ -27,3 +27,6 @@
 *.exe
 *.out
 *.app
+
+# Default CMake Build Dir
+build/

@@ -9,9 +9,9 @@
 #ifndef Projectile_hpp
 #define Projectile_hpp
 
-#include <SDL2/SDL.h>
-#include <SDL2_image/SDL_image.h>
-#include <SDL2/SDL_timer.h>
+#include <SDL.h>
+#include <SDL_image.h>
+#include <SDL_timer.h>
 
 #include "Sprite.hpp"
 
