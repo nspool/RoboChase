@@ -15,17 +15,15 @@
 
 #endif /* Scene_hpp */
 
-//#include "Sprite.hpp"
 #include "Player.hpp"
 
-constexpr unsigned int SCREEN_WIDTH = 640;
-constexpr unsigned int SCREEN_HEIGHT = 480;
+const int SCREEN_WIDTH = 640;
+const int SCREEN_HEIGHT = 480;
 
-constexpr unsigned int LEVEL_WIDTH = 1024;
-constexpr unsigned int LEVEL_HEIGHT = 1024;
+const int LEVEL_WIDTH = 1024;
+const int LEVEL_HEIGHT = 1024;
 
-constexpr unsigned int ROBOT_COUNT = 3;
-
+const int ROBOT_COUNT = 3;
 
 class Scene
 {

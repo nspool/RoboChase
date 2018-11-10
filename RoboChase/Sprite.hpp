@@ -19,14 +19,14 @@ enum Direction { x, n, s, e, w, nw, ne, sw, se };
 class Sprite
 {
 public:
-    bool isObsticle() { return true; }
-    bool isDestructable() { return false; }
-    bool isProjectile() { return false; }
-    bool isEnemy() { return false; }
-    void render(SDL_Rect camera, int ticks) {}
-    void doHit() {}
-    void doCollision(SDL_Rect* rect) {}
-    void action(SDL_Point* target, std::vector<SDL_Rect>* obsticles) {};
+    virtual bool isObsticle() { return true; }
+    virtual bool isDestructable() { return false; }
+    virtual bool isProjectile() { return false; }
+    virtual bool isEnemy() { return false; }
+    virtual void render(SDL_Rect camera, int ticks) = 0;
+    virtual void doHit() = 0 ;
+    virtual void doCollision(SDL_Rect* rect) = 0;
+    virtual void action(SDL_Point* target, std::vector<SDL_Rect>* obsticles) = 0;
     SDL_Rect getBounds() { return { position_.x, position_.y, 50, 50 }; }
     SDL_Point position_ = {0, 200};
 };

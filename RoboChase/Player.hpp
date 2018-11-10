@@ -28,6 +28,8 @@ public:
   void action(SDL_Point* target, std::vector<SDL_Rect>* obsticles);
   void captured();
   bool moving_ = false;
+  void doHit() {};
+  void doCollision(SDL_Rect* rect) {};
   Direction direction_ = x;
 private:
   SDL_Renderer* renderer_;

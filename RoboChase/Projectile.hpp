@@ -26,6 +26,7 @@ public:
   void doCollision(SDL_Rect*);
   bool isObsticle();
   bool isProjectile();
+  void action(SDL_Point* target, std::vector<SDL_Rect>* obsticles) {};
   SDL_Rect getBounds() { return { position_.x, position_.y, 5, 5  }; }
 private:
   Direction direction_ = n;

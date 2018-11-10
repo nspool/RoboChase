@@ -2,7 +2,7 @@
 
 *Under Construction!*
 
-Zap the robots before they catch you! A very simple 2D shooter inspired by the DOS game 'Robot Revenge'.
+Zap the robots before they catch you!
 
 ## TODO
 
@@ -14,14 +14,17 @@ Zap the robots before they catch you! A very simple 2D shooter inspired by the D
  - Fix the way the objects are stored in the scene
 
 # Build
+
 ## Visual Studio
 
     cmake -A x64 -DSDL2_IMAGE_DIR=c:\opt\SDL2_image-2.0.4 -DSDL2_DIR=c:\opt\SDL2-2.0.9 ..
 
 ## MingGW32 / MingGW64
 
+Set the SDL2_DIR and SDL2_IMAGE_DIR variables in CMakeLists.txt
+
 In the project folder create a build folder. Open in a MingGW command prompt and type:
 
-    cmake -DSDL2_DIR=C:/SDL2-2.0.8 -G "CodeBlocks" ..
+    cmake -G "CodeBlocks" -DCMAKE_BUILD_TYPE=Debug  ..
 
-Where SDL2_DIR is pointing to the SDL2 MingGW libraries.
+Change the CMAKE_BUILD_TYPE where appropriate.

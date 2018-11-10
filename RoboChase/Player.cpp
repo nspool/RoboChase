@@ -12,10 +12,10 @@ Player::Player(SDL_Renderer* renderer, SDL_Point p)
 {
   renderer_ = renderer;
   position_ = p;
-  
+
   // Load the robit
   SDL_Surface* gPlayer = IMG_Load("player.png");
-  
+
   if(gPlayer == 0)
   {
     SDL_LogError(0, "%s", SDL_GetError());
@@ -29,12 +29,12 @@ void Player::action(SDL_Point* target, std::vector<SDL_Rect>* obsticles)
 {
   int yd = (position_.y - target->y);
   int xd = (position_.x - target->x);
-  
+
   if(yd == 0 && xd == 0) {
     moving_ = false;
     return;
   }
-  
+
   moving_ = true;
   if(xd < 0) { direction_ = w; }
   if(xd > 0) { direction_ = e; }
@@ -51,12 +51,12 @@ void Player::captured()
 
 void Player::render(SDL_Rect camera, int ticks)
 {
-  
+
   constexpr int animationRate = 12;
   constexpr int animationLen = 2;
-  
+
   SDL_Rect bounds = getBounds();
-  
+
   int offset = 0;
   switch(direction_) {
     case e:
@@ -70,12 +70,12 @@ void Player::render(SDL_Rect camera, int ticks)
     default:
       break;
   }
-  
+
   bounds.x -= camera.x;
   bounds.y -= camera.y;
-  
+
   int frameToDraw = (moving_) ? (ticks * animationRate / 1000) % animationLen : 0;
-      
+
   SDL_RenderCopy(renderer_, sprite_.texture, &sprite_.clips[frameToDraw + offset], &bounds);
-  
+
 }

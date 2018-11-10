@@ -10,7 +10,7 @@
 #define Block_hpp
 
 #include <SDL.h>
-#include <SDL_image.h>
+#include "SDL_image.h"
 #include <SDL_timer.h>
 
 #include "Sprite.hpp"
@@ -26,6 +26,7 @@ public:
   void doCollision(SDL_Rect*);
   bool isObsticle();
   bool isDestructable();
+  void action(SDL_Point* target, std::vector<SDL_Rect>* obsticles) { };
 private:
   int hitPoints = 10;
   SDL_Renderer* renderer_ = 0;
